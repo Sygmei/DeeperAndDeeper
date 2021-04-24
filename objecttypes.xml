@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="Camera" color="#550000">
+  <property name="actor" type="object" default="0"/>
+  <property name="clamp_x_max" type="float" default="10"/>
+  <property name="clamp_x_min" type="float" default="0"/>
+  <property name="clamp_y_max" type="float" default="10"/>
+  <property name="clamp_y_min" type="float" default="0"/>
+  <property name="scale" type="float" default="1"/>
+ </objecttype>
+</objecttypes>

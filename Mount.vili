@@ -1,0 +1,6 @@
+Mount:
+    dad: Workspace { path: "DeeperAndDeeper" }
+    objects: Path { path: "dad://Data/GameObjects" }
+    scenes: Path { path: "dad://Scenes" }
+    tilesets: Path { path: "dad://Tilesets" }
+    scripts: Path { path: "dad://Scripts" }
