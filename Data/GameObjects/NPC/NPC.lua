@@ -16,8 +16,8 @@ local MOVEMENTS = {
     right = {dx = 1, dy = 0},
 }
 
-function SetMove(direction, state)
-    return function() Object.active_movements[direction] = state; end
+function Object:SetMove(direction, state)
+    Object.active_movements[direction] = state;
 end
 
 function IsMoving()
@@ -57,6 +57,7 @@ function Local.Init(x, y)
     -- local bbox_size = This.Collider:getBoundingBox():getSize();
     -- This.Collider:move(bbox_size/2);
     Object.active_movements = {left = false, right = false, up = false, down = false};
+    Object.possessed = false;
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);
@@ -88,6 +89,9 @@ function Local.Init(x, y)
 end
 
 function ComputeNextMove()
+    if Object.possessed then
+        return
+    end
     local position = GetCurrentPosition();
     if next_position ~= nil then
         if position.x == next_position.x and position.y == next_position.y then
