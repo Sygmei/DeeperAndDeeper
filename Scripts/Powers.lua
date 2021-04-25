@@ -23,7 +23,7 @@ function Powers.possession(entity, destination)
         print(gameObject.id, gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels).x, gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels).y, gameObject.controllable);
         if gameObject ~= entity and gameObject.controllable and inBoundaries(destination, gameObject) then
             playerController = Engine.Scene:getGameObject("PlayerController");
-            Engine.Scene:removeGameObject(playerController.actor.id);
+            playerController.actor:delete();
             playerController.actor = gameObject;
             Engine.Scene:getGameObject("camera").actor = playerController.actor.Collider;
             return

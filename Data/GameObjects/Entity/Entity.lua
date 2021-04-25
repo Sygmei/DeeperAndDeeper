@@ -105,3 +105,7 @@ function Event.Game.Update(event)
     end
     Trajectories:update(event.dt);
 end
+
+function Object:delete()
+    This:deleteObject();
+end

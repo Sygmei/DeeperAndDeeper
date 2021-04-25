@@ -25,3 +25,7 @@ Input:
         LeftPower: "Pressed: LMB"
         RightPower: "Pressed: RMB"
         ExitPossession: "Pressed: E"
+
+Debug:
+    Logging:
+        level: trace
