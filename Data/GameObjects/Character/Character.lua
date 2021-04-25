@@ -90,14 +90,22 @@ end
 function ChangeActor()
     for _, gameObject in pairs(Engine.Scene:getAllGameObjects()) do
         if gameObject.possessed ~= nil and CursorInBoundaries(gameObject) then
-            Object.actor.possessed = false;
             oldActor = Object.actor
             Object.actor = gameObject;
+            actorCollider = Engine.Scene:getCollider(Object.actor.id);
+            oldActorCollider = Engine.Scene:getCollider(oldActor.id);
+
             Object.actor.possessed = true;
+            actorCollider:clearTags(obe.Collision.ColliderTagType.Accepted);
+            actorCollider:addTag(obe.Collision.ColliderTagType.Rejected, "Character");
+            Engine.Scene:getGameObject("camera").actor = actorCollider;
+
+            oldActor.possessed = false;
+            oldActorCollider:clearTags(obe.Collision.ColliderTagType.Rejected);
+            oldActorCollider:addTag(obe.Collision.ColliderTagType.Accepted, "NONE");
             for _, direction in pairs(DIRECTIONS) do
                 oldActor:SetMove(direction, false);
             end
-            Engine.Scene:getGameObject("camera").actor = Engine.Scene:getCollider(Object.actor.id);
             return
         end
     end
