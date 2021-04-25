@@ -45,13 +45,7 @@ function GetMovingAngle(active_movements)
     return TranslationToAngle(dx, dy);
 end
 
-function Projectiles(position, gameObject)
-    gameObject = gameObject or Object;
-    center = This.Collider:getCentroid():to(obe.Transform.Units.ScenePixels);
-    Engine.Scene:createGameObject("Projectile")({center=center, destination=position:to(obe.Transform.Units.ScenePixels);})
-end
-
-function Local.Init(x, y)
+function Local.Init(x, y, power_name)
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     local render_options = obe.Scene.SceneRenderOptions();
     -- render_options.collisions = true;
@@ -64,7 +58,7 @@ function Local.Init(x, y)
     -- This.Collider:move(bbox_size/2);
     Object.active_movements = {left = false, right = false, up = false, down = false};
     Object.possessed = false;
-    Object.power = Projectiles;
+    Object.power = powers[power_name];
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);
@@ -133,7 +127,7 @@ function Event.Game.Update(event)
     ComputeNextMove();
 
     if not Object.possessed and obe.Utils.Math.randint(0, 60) == 0 then
-        Object.power(Engine.Scene:getCollider("character"):getCentroid():to(obe.Transform.Units.ScenePixels))
+        Object.power(This.Collider:getCentroid(), Engine.Scene:getCollider("character"):getCentroid());
     end
 
     local cpos = GetCurrentPosition();

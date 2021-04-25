@@ -73,6 +73,7 @@ end
 function MoveActor(direction, state)
     return function() Object.actor:SetMove(direction, state); end
 end
+
 function CursorInBoundaries(gameObject)
     local cursor_position = Engine.Cursor:getScenePosition():to(obe.Transform.Units.SceneUnits);
     local camera = Engine.Scene:getCamera():getPosition();
@@ -93,8 +94,8 @@ function ChangeActor()
         if gameObject.possessed ~= nil and CursorInBoundaries(gameObject) then
             oldActor = Object.actor
             Object.actor = gameObject;
-            actorCollider = Engine.Scene:getCollider(Object.actor.id);
-            oldActorCollider = Engine.Scene:getCollider(oldActor.id);
+            actorCollider = Object.actor.Collider;
+            oldActorCollider = oldActor.Collider;
 
             Object.actor.possessed = true;
             actorCollider:clearTags(obe.Collision.ColliderTagType.Accepted);
@@ -119,7 +120,7 @@ end
 
 function UsePower()
     local cursor_position = Engine.Cursor:getScenePosition() + Engine.Scene:getCamera():getPosition():to(obe.Transform.Units.ScenePixels);
-    Object.power(cursor_position, Object);
+    Object.power(Object.actor.Collider:getCentroid(), cursor_position);
 end
 
 Event.Actions.Up = MoveActor("up", true);

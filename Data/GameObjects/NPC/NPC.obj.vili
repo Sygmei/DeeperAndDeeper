@@ -21,4 +21,7 @@ NPC:
         unit: "ScenePixels"
         tag: "Character"
     Script:
-        source: "self://NPC.lua"
+        sources: [
+            "self://NPC.lua",
+            "scripts://Powers.lua"
+        ]
