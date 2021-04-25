@@ -20,4 +20,5 @@ Input:
         RDown: "Released: S"
         RLeft: "Released: Q"
         RRight: "Released: D"
-        Goto: "Pressed: RMB"
+        ChangeActor: "Released: LMB"
+        Power: "Pressed: RMB"

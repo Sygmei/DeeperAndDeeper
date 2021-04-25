@@ -45,6 +45,12 @@ function GetMovingAngle(active_movements)
     return TranslationToAngle(dx, dy);
 end
 
+function Projectiles(position, gameObject)
+    gameObject = gameObject or Object;
+    center = This.Collider:getCentroid():to(obe.Transform.Units.ScenePixels);
+    Engine.Scene:createGameObject("Projectile")({center=center, destination=position:to(obe.Transform.Units.ScenePixels);})
+end
+
 function Local.Init(x, y)
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     local render_options = obe.Scene.SceneRenderOptions();
@@ -58,6 +64,7 @@ function Local.Init(x, y)
     -- This.Collider:move(bbox_size/2);
     Object.active_movements = {left = false, right = false, up = false, down = false};
     Object.possessed = false;
+    Object.power = Projectiles;
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);
@@ -124,6 +131,10 @@ end
 local old_position = {x=nil, y=nil};
 function Event.Game.Update(event)
     ComputeNextMove();
+
+    if not Object.possessed and obe.Utils.Math.randint(0, 60) == 0 then
+        Object.power(Engine.Scene:getCollider("character"):getCentroid():to(obe.Transform.Units.ScenePixels))
+    end
 
     local cpos = GetCurrentPosition();
     if cpos.x ~= old_position.x or cpos.y ~= old_position.y then
@@ -268,6 +279,7 @@ function FollowMe()
     path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), world);
 end
 
+--[[
 function Event.Actions.Goto()
     local position = GetCurrentPosition();
     local destination = GetCursorPosition();
@@ -307,3 +319,4 @@ function Event.Actions.Goto()
         io.write("\n");
     end
 end
+]]

@@ -1,0 +1,15 @@
+Projectile:
+    Script:
+        sources:[
+            "self://Projectile.lua",
+            "topdown://Scripts/Vector2.lua"
+            ]
+    Sprite:
+        path:"topdown://Sprites/projectile.png"
+        rect:
+            x:0.0
+            y:0.0
+            width:10.0
+            height:10.0
+            unit:"ScenePixels"
+        zdepth:0

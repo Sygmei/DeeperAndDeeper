@@ -38,6 +38,7 @@ end
 function Local.Init(x, y)
     Object.actor = Object;
     Object.possessed = true;
+    Object.power = function() end;
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     This.Collider:addTag(obe.Collision.ColliderTagType.Rejected, "Character");
     Object.active_movements = {left = false, right = false, up = false, down = false};
@@ -106,9 +107,19 @@ function ChangeActor()
             for _, direction in pairs(DIRECTIONS) do
                 oldActor:SetMove(direction, false);
             end
+            if Object.actor == Object then
+                Object.power = function() end;
+            else
+                Object.power = Object.actor.power;
+            end
             return
         end
     end
+end
+
+function UsePower()
+    local cursor_position = Engine.Cursor:getScenePosition() + Engine.Scene:getCamera():getPosition():to(obe.Transform.Units.ScenePixels);
+    Object.power(cursor_position, Object);
 end
 
 Event.Actions.Up = MoveActor("up", true);
@@ -120,6 +131,7 @@ Event.Actions.RDown = MoveActor("down", false);
 Event.Actions.RLeft = MoveActor("left", false);
 Event.Actions.RRight = MoveActor("right", false);
 Event.Actions.ChangeActor = ChangeActor;
+Event.Actions.Power = UsePower
 
 function Event.Game.Update(event)
     This.Sprite:setZDepth(-math.floor(This.SceneNode:getPosition().y * 1000));
