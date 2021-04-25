@@ -16,8 +16,8 @@ local MOVEMENTS = {
     right = {dx = 1, dy = 0},
 }
 
-function SetMove(direction, state)
-    return function() Object.active_movements[direction] = state; end
+function Object:SetMove(direction, state)
+    Object.active_movements[direction] = state;
 end
 
 function IsMoving()
@@ -45,7 +45,7 @@ function GetMovingAngle(active_movements)
     return TranslationToAngle(dx, dy);
 end
 
-function Local.Init(x, y)
+function Local.Init(x, y, power_name)
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     local render_options = obe.Scene.SceneRenderOptions();
     -- render_options.collisions = true;
@@ -57,6 +57,8 @@ function Local.Init(x, y)
     -- local bbox_size = This.Collider:getBoundingBox():getSize();
     -- This.Collider:move(bbox_size/2);
     Object.active_movements = {left = false, right = false, up = false, down = false};
+    Object.possessed = false;
+    Object.power = powers[power_name];
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);
@@ -88,6 +90,9 @@ function Local.Init(x, y)
 end
 
 function ComputeNextMove()
+    if Object.possessed then
+        return
+    end
     local position = GetCurrentPosition();
     if next_position ~= nil then
         if position.x == next_position.x and position.y == next_position.y then
@@ -120,6 +125,10 @@ end
 local old_position = {x=nil, y=nil};
 function Event.Game.Update(event)
     ComputeNextMove();
+
+    if not Object.possessed and obe.Utils.Math.randint(0, 60) == 0 then
+        Object.power(This.Collider:getCentroid(), Engine.Scene:getCollider("character"):getCentroid());
+    end
 
     local cpos = GetCurrentPosition();
     if cpos.x ~= old_position.x or cpos.y ~= old_position.y then
@@ -264,7 +273,8 @@ function FollowMe()
     path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), world);
 end
 
-function Event.Actions.Goto(destination)
+--[[
+function Event.Actions.Goto()
     local position = GetCurrentPosition();
     -- local destination = GetCursorPosition();
 
@@ -303,3 +313,4 @@ function Event.Actions.Goto(destination)
         io.write("\n");
     end
 end
+]]

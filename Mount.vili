@@ -4,3 +4,4 @@ Mount:
     scenes: Path { path: "dad://Scenes" }
     tilesets: Path { path: "dad://Tilesets" }
     scripts: Path { path: "dad://Scripts" }
+    sprites: Path { path: "dad://Sprites" }

@@ -10,12 +10,8 @@ local MOVEMENTS = {
     right = {dx = 1, dy = 0},
 }
 
-function SetMove(direction, state)
-    return function()
-        if Object.controlable then
-            Object.active_movements[direction] = state;
-        end
-    end
+function Object:SetMove(direction, state)
+    Object.active_movements[direction] = state;
 end
 
 function IsMoving()
@@ -39,15 +35,12 @@ function GetMovingAngle(active_movements)
     end
 end
 
-function Local.Init(x, y, skin, controlable)
-    print(Object.id, "is", controlable, "controlable")
-    local render_options = obe.Scene.SceneRenderOptions();
-    render_options.collisions = true;
-    -- render_options.sceneNodes = true;
-    Engine.Scene:setRenderOptions(render_options);
-    Object.controlable = controlable;
+function Local.Init(x, y, skin)
     This.Animator:load(obe.System.Path("dad://Sprites/Characters/" .. skin), Engine.Resources);
     This.Animator:setKey("IDLE_DOWN");
+    Object.actor = Object;
+    Object.possessed = true;
+    Object.power = function() end;
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     This.Collider:addTag(obe.Collision.ColliderTagType.Rejected, "Character");
     Object.active_movements = {left = false, right = false, up = false, down = false};
@@ -79,14 +72,69 @@ function Local.Init(x, y, skin, controlable)
     end);
 end
 
-Event.Actions.Up = SetMove("up", true);
-Event.Actions.Down = SetMove("down", true);
-Event.Actions.Left = SetMove("left", true);
-Event.Actions.Right = SetMove("right", true);
-Event.Actions.RUp = SetMove("up", false);
-Event.Actions.RDown = SetMove("down", false);
-Event.Actions.RLeft = SetMove("left", false);
-Event.Actions.RRight = SetMove("right", false);
+function MoveActor(direction, state)
+    return function() Object.actor:SetMove(direction, state); end
+end
+
+function CursorInBoundaries(gameObject)
+    local cursor_position = Engine.Cursor:getScenePosition():to(obe.Transform.Units.SceneUnits);
+    local camera = Engine.Scene:getCamera():getPosition();
+    local sprite = Engine.Scene:getSprite(gameObject.id);
+    local sprite_size = sprite:getSize();
+    local sprite_position = sprite:getPosition();
+    if cursor_position.x + camera.x >= sprite_position.x
+    and cursor_position.x + camera.x <= sprite_position.x + sprite_size.x
+    and cursor_position.y + camera.y >= sprite_position.y
+    and cursor_position.y + camera.y <= sprite_position.y + sprite_size.y then
+        return true;
+    end
+    return false;
+end
+
+function ChangeActor()
+    for _, gameObject in pairs(Engine.Scene:getAllGameObjects()) do
+        if gameObject.possessed ~= nil and CursorInBoundaries(gameObject) then
+            oldActor = Object.actor
+            Object.actor = gameObject;
+            actorCollider = Object.actor.Collider;
+            oldActorCollider = oldActor.Collider;
+
+            Object.actor.possessed = true;
+            actorCollider:clearTags(obe.Collision.ColliderTagType.Accepted);
+            actorCollider:addTag(obe.Collision.ColliderTagType.Rejected, "Character");
+            Engine.Scene:getGameObject("camera").actor = actorCollider;
+
+            oldActor.possessed = false;
+            oldActorCollider:clearTags(obe.Collision.ColliderTagType.Rejected);
+            oldActorCollider:addTag(obe.Collision.ColliderTagType.Accepted, "NONE");
+            for _, direction in pairs(DIRECTIONS) do
+                oldActor:SetMove(direction, false);
+            end
+            if Object.actor == Object then
+                Object.power = function() end;
+            else
+                Object.power = Object.actor.power;
+            end
+            return
+        end
+    end
+end
+
+function UsePower()
+    local cursor_position = Engine.Cursor:getScenePosition() + Engine.Scene:getCamera():getPosition():to(obe.Transform.Units.ScenePixels);
+    Object.power(Object.actor.Collider:getCentroid(), cursor_position);
+end
+
+Event.Actions.Up = MoveActor("up", true);
+Event.Actions.Down = MoveActor("down", true);
+Event.Actions.Left = MoveActor("left", true);
+Event.Actions.Right = MoveActor("right", true);
+Event.Actions.RUp = MoveActor("up", false);
+Event.Actions.RDown = MoveActor("down", false);
+Event.Actions.RLeft = MoveActor("left", false);
+Event.Actions.RRight = MoveActor("right", false);
+Event.Actions.ChangeActor = ChangeActor;
+Event.Actions.Power = UsePower
 
 function Event.Game.Update(event)
     This.Sprite:setZDepth(-math.floor(This.SceneNode:getPosition().y * 1000));

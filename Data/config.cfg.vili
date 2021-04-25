@@ -22,3 +22,5 @@ Input:
         RRight: "Released: D"
         Goto: "Pressed: RMB"
         Continue: "Pressed: Return"
+        ChangeActor: "Released: LMB"
+        Power: "Pressed: RMB"
