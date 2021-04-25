@@ -1,0 +1,20 @@
+VisualNovel:
+    Sprite:
+        layer:0
+        zdepth:1
+        rect:
+            x: 0
+            y: 0
+            width: 1
+            height: 1
+            unit: "ViewPercentage"
+        transform:
+            x: "Position"
+            y: "Position"
+    Script:
+        sources:[
+            "self://Icons.lua",
+            "self://Commands.lua",
+            "self://VisualNovel.lua"
+        ]
+    permanent:true

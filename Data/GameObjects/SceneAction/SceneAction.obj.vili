@@ -1,0 +1,6 @@
+SceneAction:
+    Script:
+        sources: [
+            "self://Actions.lua",
+            "self://SceneAction.lua"
+        ]

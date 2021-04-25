@@ -1,0 +1,14 @@
+{ "columns":5,
+ "image":"corridor.png",
+ "imageheight":640,
+ "imagewidth":640,
+ "margin":0,
+ "name":"corridor",
+ "spacing":0,
+ "tilecount":25,
+ "tiledversion":"1.5.0",
+ "tileheight":128,
+ "tilewidth":128,
+ "type":"tileset",
+ "version":1.5
+}

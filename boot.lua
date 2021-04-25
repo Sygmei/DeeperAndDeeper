@@ -1,3 +1,3 @@
 function Game.Start()
-    Engine.Scene:loadFromFile("scenes://test_village.json.vili");
+    Engine.Scene:loadFromFile("scenes://psychoanalyst_room.json.vili");
 end

@@ -1,4 +1,4 @@
-local character_speed = 0.15;
+local character_speed = 0.50;
 local trajectory;
 local OFFSET_EPSILON = 0.0000001;
 
@@ -11,7 +11,11 @@ local MOVEMENTS = {
 }
 
 function SetMove(direction, state)
-    return function() Object.active_movements[direction] = state; end
+    return function()
+        if Object.controlable then
+            Object.active_movements[direction] = state;
+        end
+    end
 end
 
 function IsMoving()
@@ -35,7 +39,15 @@ function GetMovingAngle(active_movements)
     end
 end
 
-function Local.Init(x, y)
+function Local.Init(x, y, skin, controlable)
+    print(Object.id, "is", controlable, "controlable")
+    local render_options = obe.Scene.SceneRenderOptions();
+    render_options.collisions = true;
+    -- render_options.sceneNodes = true;
+    Engine.Scene:setRenderOptions(render_options);
+    Object.controlable = controlable;
+    This.Animator:load(obe.System.Path("dad://Sprites/Characters/" .. skin), Engine.Resources);
+    This.Animator:setKey("IDLE_DOWN");
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     This.Collider:addTag(obe.Collision.ColliderTagType.Rejected, "Character");
     Object.active_movements = {left = false, right = false, up = false, down = false};
@@ -54,14 +66,14 @@ function Local.Init(x, y)
             if math.abs(offset.x) > OFFSET_EPSILON and math.abs(offset.y) > OFFSET_EPSILON then
                 local nox_offset = obe.Transform.UnitVector(0, offset.y, offset.unit);
                 local noy_offset = obe.Transform.UnitVector(offset.x, 0, offset.unit);
-                local angle = trajectory:getAngle();
+                local angle = self:getAngle();
                 if #This.Collider:getMaximumDistanceBeforeCollision(nox_offset).colliders == 0 then
                     angle = GetMovingAngle({up=Object.active_movements.up, down=Object.active_movements.down});
                 elseif #This.Collider:getMaximumDistanceBeforeCollision(noy_offset).colliders == 0 then
                     angle = GetMovingAngle({left=Object.active_movements.left, right=Object.active_movements.right});
                 end
-                trajectory:setAngle(angle);
-                trajectory:setSpeed(character_speed / 2);
+                self:setAngle(angle);
+                self:setSpeed(character_speed / 2);
             end
         end
     end);

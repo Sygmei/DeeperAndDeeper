@@ -8,4 +8,14 @@
   <property name="clamp_y_min" type="float" default="0"/>
   <property name="scale" type="float" default="1"/>
  </objecttype>
+ <objecttype name="Character" color="#ff0000">
+  <property name="controlable" type="bool" default="false"/>
+  <property name="skin" type="string"/>
+ </objecttype>
+ <objecttype name="SceneAction" color="#00ff7f">
+  <property name="action" type="string"/>
+  <property name="after" type="float" default="0"/>
+  <property name="condition" type="string"/>
+  <property name="every" type="float" default="-1"/>
+ </objecttype>
 </objecttypes>

@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"coarse_dirt.png",
+ "imageheight":128,
+ "imagewidth":128,
+ "margin":0,
+ "name":"coarse_dirt",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.5.0",
+ "tileheight":128,
+ "tilewidth":128,
+ "type":"tileset",
+ "version":1.5
+}

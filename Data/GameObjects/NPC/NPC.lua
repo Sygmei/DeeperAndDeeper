@@ -264,9 +264,9 @@ function FollowMe()
     path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), world);
 end
 
-function Event.Actions.Goto()
+function Event.Actions.Goto(destination)
     local position = GetCurrentPosition();
-    local destination = GetCursorPosition();
+    -- local destination = GetCursorPosition();
 
     print("From", position.x, position.y, "To", destination.x, destination.y);
     path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), world);

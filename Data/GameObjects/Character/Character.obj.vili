@@ -1,22 +1,20 @@
 Character:
-    Animator:
-        path: "topdown://Characters/Bob"
-        default: "IDLE_DOWN"
+    Animator: {}
     Sprite:
         rect:
             x: 0
             y: 0
-            width: 16
-            height: 22
+            width: 128
+            height: 176
             unit: "ScenePixels"
         layer: 1
         zdepth: 0
     Collider:
         points: [
-            {x: 2, y: 20},
-            {x: 9, y: 20},
-            {x: 9, y: 23},
-            {x: 2, y: 23}
+            {x: 16, y: 160},
+            {x: 72, y: 160},
+            {x: 72, y: 184},
+            {x: 16, y: 184}
         ]
         unit: "ScenePixels"
         tag: "Character"
