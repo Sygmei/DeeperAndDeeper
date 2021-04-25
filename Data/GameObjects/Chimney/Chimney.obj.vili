@@ -1,0 +1,24 @@
+Chimney:
+    Animator:
+        path: "dad://Sprites/Characters/Chimney"
+        default: "IDLE_DOWN"
+    Sprite:
+        rect:
+            x: 0
+            y: 0
+            width: 128
+            height: 192
+            unit: "ScenePixels"
+        layer: 1
+        zdepth: 0
+    Collider:
+        points: [
+            {x: 16, y: 160},
+            {x: 72, y: 160},
+            {x: 72, y: 184},
+            {x: 16, y: 184}
+        ]
+        unit: "ScenePixels"
+        tag: "Character"
+    Script:
+        source: "self://Chimney.lua"

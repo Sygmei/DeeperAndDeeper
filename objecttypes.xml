@@ -12,6 +12,9 @@
   <property name="controlable" type="bool" default="false"/>
   <property name="skin" type="string"/>
  </objecttype>
+ <objecttype name="ParticleEmitter" color="#a0a0a4">
+  <property name="particle" type="string"/>
+ </objecttype>
  <objecttype name="SceneAction" color="#00ff7f">
   <property name="action" type="string"/>
   <property name="after" type="float" default="0"/>

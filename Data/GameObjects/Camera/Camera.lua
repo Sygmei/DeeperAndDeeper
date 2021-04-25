@@ -35,7 +35,7 @@ end
 
 function scaleCamera()
     if Object.current_zone == nil then
-        Object.target_scale = default_scale;
+        Object.target_scale = Object.custom_scale;
     else
         local window_size = Engine.Window:getSize();
         local window_ratio = window_size.x / window_size.y;
@@ -56,6 +56,7 @@ function setClamps()
 end
 
 function Local.Init(actor, clamp_x_min, clamp_y_min, clamp_x_max, clamp_y_max, disable_clamping, scale)
+    Object.custom_scale = default_scale;
     disable_clamping = disable_clamping or false;
     default_scale = scale or default_scale;
     Object.current_scale = default_scale;

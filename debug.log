@@ -111,3 +111,58 @@
 [12:05:57.581]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
 [12:05:57.581]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
 [12:05:57.584]<info> : Done :)
+[18:27:21.760]<info> : Logger initialized
+[18:27:21.761]<info> : [ObEngine] Tiled Integration started
+[18:27:21.761]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[18:27:21.761]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[18:27:21.761]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[18:27:21.764]<info> : Done :)
+[18:29:35.442]<info> : Logger initialized
+[18:29:35.443]<info> : [ObEngine] Tiled Integration started
+[18:29:35.443]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[18:29:35.443]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[18:29:35.443]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[18:29:35.446]<info> : Done :)
+[19:05:36.865]<info> : Logger initialized
+[19:05:36.866]<info> : [ObEngine] Tiled Integration started
+[19:05:36.866]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[19:05:36.866]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[19:05:36.866]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[19:05:36.869]<info> : Done :)
+[19:09:23.983]<info> : Logger initialized
+[19:09:23.983]<info> : [ObEngine] Tiled Integration started
+[19:09:23.983]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[19:09:23.983]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[19:09:23.983]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[19:09:23.991]<info> : Done :)
+[19:12:06.645]<info> : Logger initialized
+[19:12:06.645]<info> : [ObEngine] Tiled Integration started
+[19:12:06.646]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[19:12:06.646]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[19:12:06.646]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[19:12:06.649]<info> : Done :)
+[19:43:52.865]<info> : Logger initialized
+[19:43:52.866]<info> : [ObEngine] Tiled Integration started
+[19:43:52.866]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Tilesets/psychoanalyst_room.json
+[19:43:52.866]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Tilesets/psychoanalyst_room.json.vili
+[19:43:52.866]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[19:43:52.866]<error> : [json.exception.type_error.302] type must be number, but is null
+[19:43:52.866]<info> : Something went wrong :(
+[19:43:54.922]<info> : Logger initialized
+[19:43:54.922]<info> : [ObEngine] Tiled Integration started
+[19:43:54.923]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[19:43:54.923]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[19:43:54.923]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[19:43:54.925]<info> : Done :)
+[19:47:52.696]<info> : Logger initialized
+[19:47:52.697]<info> : [ObEngine] Tiled Integration started
+[19:47:52.697]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[19:47:52.697]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[19:47:52.697]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[19:47:52.702]<info> : Done :)
+[20:17:55.132]<info> : Logger initialized
+[20:17:55.133]<info> : [ObEngine] Tiled Integration started
+[20:17:55.133]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[20:17:55.133]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[20:17:55.133]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[20:17:55.138]<info> : Done :)

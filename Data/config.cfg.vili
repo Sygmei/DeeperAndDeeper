@@ -24,3 +24,4 @@ Input:
         Continue: "Pressed: Return"
         ChangeActor: "Released: LMB"
         Power: "Pressed: RMB"
+        Weapon: "Pressed: LMB"
