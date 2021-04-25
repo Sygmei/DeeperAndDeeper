@@ -8,6 +8,8 @@ local character_speed = 0.15;
 local trajectory;
 local OFFSET_EPSILON = 0.0000001;
 
+Powers = require "dad://Scripts/Powers";
+
 local DIRECTIONS = {"left", "right", "up", "down"};
 local MOVEMENTS = {
     up = {dx = 0, dy = 1},
@@ -58,7 +60,7 @@ function Local.Init(x, y, power_name)
     -- This.Collider:move(bbox_size/2);
     Object.active_movements = {left = false, right = false, up = false, down = false};
     Object.possessed = false;
-    Object.power = powers[power_name];
+    Object.power = Powers[power_name];
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);

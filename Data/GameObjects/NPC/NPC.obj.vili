@@ -23,5 +23,4 @@ NPC:
     Script:
         sources: [
             "self://NPC.lua",
-            "scripts://Powers.lua"
         ]
