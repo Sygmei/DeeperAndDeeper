@@ -84,6 +84,15 @@ function Local.Init(x, y, skin, controllable, powers_names)
     end);
 end
 
+function ContainsAnimation(animation_name)
+    for k, v in pairs(This.Animator:getAllAnimationName()) do
+        if v == animation_name then
+            return true;
+        end
+    end
+    return false;
+end
+
 function Event.Game.Update(event)
     This.Sprite:setZDepth(-math.floor(This.SceneNode:getPosition().y * 1000));
     if IsMoving() then
@@ -91,7 +100,8 @@ function Event.Game.Update(event)
         -- Discard nan results
         if angle == angle then
             for _, movement_name in pairs(DIRECTIONS) do
-                if Object.active_movements[movement_name] then
+                if Object.active_movements[movement_name]
+                 and ContainsAnimation("MOVE_" .. movement_name:upper()) then
                     This.Animator:setKey("MOVE_" .. movement_name:upper());
                     break;
                 end

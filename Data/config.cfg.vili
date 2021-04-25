@@ -28,4 +28,4 @@ Input:
 
 Debug:
     Logging:
-        level: trace
+        level: debug
