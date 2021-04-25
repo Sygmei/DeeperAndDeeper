@@ -1,0 +1,3 @@
+PlayerController:
+    Script:
+        source: "self://PlayerController.lua"

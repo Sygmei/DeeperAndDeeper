@@ -1,5 +1,5 @@
-Character:
-    Animator: {}
+Entity:
+    Animator: {path:""}
     Sprite:
         rect:
             x: 0
@@ -17,6 +17,5 @@ Character:
             {x: 16, y: 184}
         ]
         unit: "ScenePixels"
-        tag: "Character"
     Script:
-        source: "self://Character.lua"
+        source:  "self://Entity.lua"

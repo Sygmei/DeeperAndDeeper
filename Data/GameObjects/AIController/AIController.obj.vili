@@ -1,0 +1,3 @@
+AIController:
+    Script:
+        source: "self://AIController.lua"

@@ -526,19 +526,26 @@ GameObjects:
             width: 0.0
             height: 0.0
             rotation: 0.0
+
+    AIController: 
+        type: "AIController"
+        Requires: 
+            x: -100.0
+            y: -100.0
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
             
         
-    character: 
-        type: "Character"
+    PlayerController: 
+        type: "PlayerController"
         Requires: 
             x: 1920.0
             y: 362.0
             width: 0.0
             height: 0.0
             rotation: 0.0
-            controlable: true
             skin: "Bob"
-            
         
     camera: 
         type: "Camera"
@@ -548,7 +555,6 @@ GameObjects:
             width: 0.0
             height: 0.0
             rotation: 0.0
-            actor: "character"
             
         
     room_0_0: 
@@ -563,15 +569,19 @@ GameObjects:
             
         
     enemy: 
-        type: "Character"
+        type: "Entity"
         Requires: 
             x: 1930.0
             y: 674.0
             width: 0.0
             height: 0.0
             rotation: 0.0
-            controlable: false
+            controllable: false
             skin: "Amelia"
+            powers_names: {
+                left: "null",
+                right: "null"
+            }
             
         
     smoke: 
@@ -586,13 +596,16 @@ GameObjects:
             
         
     chimney: 
-        type: "Chimney"
+        type: "Entity"
         Requires: 
             x: 1320.0
             y: 614.0
             width: 0.0
             height: 0.0
             rotation: 0.0
-            
-        
-    
+            controllable: true
+            skin: "Chimney"
+            powers_names: {
+                left: "projectiles",
+                right: "projectiles"
+            }
