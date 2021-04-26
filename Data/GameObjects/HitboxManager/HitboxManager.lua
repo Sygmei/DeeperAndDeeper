@@ -50,6 +50,7 @@ function Event.Game.Update(event)
                     if last_hit == 0 or (hitbox.hitrate >= 0 and obe.Time.epoch() - last_hit >= hitbox.hitrate) then
                         local is_ignored = false;
                         local ignored_tags = hitbox.ignore(game_object);
+                        print("Ignored tags", inspect(ignored_tags))
                         for _, v in pairs(game_object.Collider:getAllTags(obe.Collision.ColliderTagType.Tag)) do
                             if ignored_tags[v] then
                                 is_ignored = true;

@@ -112,6 +112,7 @@ Powers.weapon = {
                 self.power_container.punch_audio:play();
             end
         }
+        table.insert(self.hitboxes, self.weapon.hitbox.id);
     end,
     ondelete = function(self)
         self.weapon.hitbox.delete();
@@ -137,6 +138,7 @@ Powers.smoke = {
             hitrate = 3,
             ignore = DynamicHitboxIgnore,
         }
+        table.insert(self.hitboxes, self.power_container.smoke_hitbox.id);
     end,
     onupdate = function(self, dt)
         self.power_container.smoke.animator:update();
@@ -165,6 +167,7 @@ Powers.knife = {
                 self.power_container.knife_audio:play();
             end
         }
+        table.insert(self.hitboxes, self.power_container.knife.id);
     end,
     ondelete = function(self)
         self.power_container.knife.delete();

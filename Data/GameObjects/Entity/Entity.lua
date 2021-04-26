@@ -54,6 +54,8 @@ local Entities = require "scripts://Entities";
 
 function Local.Init(x, y, kind)
     Object.Collider:addTag(obe.Collision.ColliderTagType.Tag, kind);
+    Object.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Enemy");
+    Object.hitboxes = {};
     Object.is_enemy = true;
     Object.invincible = false;
     Object.active_powers = {};
@@ -104,7 +106,16 @@ function Local.Init(x, y, kind)
 end
 
 function Local.Delete()
-    Entities[Object.kind].ondelete(Object);
+    print("ENTITY", Object.kind, Object.id, "IS DEAD", inspect(Object.hitboxes));
+    if Entities[Object.kind].ondelete then
+        Entities[Object.kind].ondelete(Object);
+    end
+    local hitbox_manager = Engine.Scene:getGameObject("hitboxes");
+    print("Will delete all the missing hitboxes", inspect(Object.hitboxes));
+    for k, v in pairs(Object.hitboxes) do
+        print("Remove hitbox", v);
+        hitbox_manager:removeHitbox(v);
+    end
 end
 
 function Object:Hit(damage)

@@ -28,4 +28,10 @@
   <property name="condition" type="string"/>
   <property name="every" type="float" default="-1"/>
  </objecttype>
+ <objecttype name="Spawner" color="#a0a0a4">
+  <property name="capacity" type="int" default="0"/>
+  <property name="delay" type="float" default="0"/>
+  <property name="kind" type="string"/>
+  <property name="state" type="bool" default="false"/>
+ </objecttype>
 </objecttypes>

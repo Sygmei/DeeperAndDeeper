@@ -8,6 +8,14 @@
         "."
     ],
     "fileStates": {
+        "Scenes/dream_2.json": {
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2713.636363636364,
+                "y": 1984.8484848484848
+            }
+        },
         "Scenes/psychoanalyst_room.json": {
             "scale": 0.75,
             "selectedLayer": 7,
@@ -34,7 +42,7 @@
     "openFiles": [
     ],
     "project": "dad.tiled-project",
-    "property.type": "int",
+    "property.type": "bool",
     "recentFiles": [
         "Scenes/psychoanalyst_room.json"
     ],

@@ -31,13 +31,15 @@ function Object:control(actor_id)
         MoveActor("right", false);
         Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Tag, "Friend");
         Object.actor.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Enemy");
+        Object.actor.Collider:addTag(obe.Collision.ColliderTagType.Accepted, "NONE");
         Object.actor.is_enemy = true;
     end
     Object.actor = Engine.Scene:getGameObject(actor_id);
     Object.actor.is_enemy = false;
+    Object.actor.Collider:clearTags();
     Object.actor.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Friend");
-    Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Tag, "Enemy");
-    Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
+    -- Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Tag, "Enemy");
+    -- Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
     if Object.actor.Collider:doesCollide(obe.Transform.UnitVector()) then
         local camera_scale = Engine.Scene:getCamera():getSize().y / 2;
         local tile_width = Engine.Scene:getTiles():getTileWidth() / camera_scale;

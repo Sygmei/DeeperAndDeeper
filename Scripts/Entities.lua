@@ -39,7 +39,7 @@ Entities.Psychoanalyst = {
     primary = "dodge",
     secondary = "possession",
     controllable = false,
-    hp = 10
+    hp = 100
 };
 
 Entities.Chimney = {
