@@ -62,14 +62,14 @@ function Local.Init(x, y, kind)
     print("New Entity of kind", kind);
     Object.controllable = Entities[kind].controllable;
     Object.Animator = Engine.Scene:getGameObject("animations"):use(kind);
-    This.Animator:load(obe.System.Path("dad://Sprites/Characters/" .. Entities[kind].skin), Engine.Resources);
-    This.Animator:setKey("IDLE_DOWN");
+    Object.aim = Entities[kind].aim;
+    Object.Animator:setTarget(Object.Sprite);
+    Object.Animator:setKey("IDLE_DOWN");
     Object.powers = {primary = Powers[Entities[kind].primary], secondary = Powers[Entities[kind].secondary]};
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     Object.active_movements = {left = false, right = false, up = false, down = false};
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
-
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);
     Trajectories:setProbe(This.Collider);
     trajectory = Trajectories:addTrajectory("direction"):setSpeed(0):setAngle(-90):setAcceleration(0);
@@ -100,7 +100,7 @@ end
 
 function Object:Hit(damage)
     if ContainsAnimation("HIT") then
-        This.Animator:setKey("HIT");
+        Object.Animator:setKey("HIT");
     end
 end
 
@@ -120,7 +120,7 @@ function Object:UsePower(primary_or_secondary, position)
 end
 
 function ContainsAnimation(animation_name)
-    for k, v in pairs(This.Animator:getAllAnimationName()) do
+    for k, v in pairs(Object.Animator:getAnimator():getAllAnimationName()) do
         if v == animation_name then
             return true;
         end
@@ -129,6 +129,7 @@ function ContainsAnimation(animation_name)
 end
 
 function Event.Game.Update(event)
+    Object.Animator:update();
     local expired_powers = {};
     for k, v in pairs(Object.active_powers) do
         if v.onupdate then
@@ -155,7 +156,7 @@ function Event.Game.Update(event)
             for _, movement_name in pairs(DIRECTIONS) do
                 if Object.active_movements[movement_name]
                  and ContainsAnimation("MOVE_" .. movement_name:upper()) then
-                    This.Animator:setKey("MOVE_" .. movement_name:upper());
+                    Object.Animator:setKey("MOVE_" .. movement_name:upper());
                     break;
                 end
             end
@@ -164,9 +165,9 @@ function Event.Game.Update(event)
         end
     else
         trajectory:setSpeed(0);
-        local animation_name = This.Animator:getKey():gmatch("_([^%s]+)")();
+        local animation_name = Object.Animator:getKey():gmatch("_([^%s]+)")();
         if animation_name then
-            This.Animator:setKey("IDLE_" .. animation_name);
+            Object.Animator:setKey("IDLE_" .. animation_name);
         end
     end
     Trajectories:update(event.dt);

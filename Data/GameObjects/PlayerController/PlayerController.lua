@@ -1,12 +1,19 @@
 function Local.Init(actor)
-    Object.control(actor);
+    Object.aiming_wheel = Engine.Scene:createGameObject("AimingWheel")({active=false, texture="sprites://Aim/aim_medium.png"});
+    Object:control(actor);
 end
 
-function Object.control(actor)
+function Object:control(actor)
     if actor ~= nil then
         Object.actor = Engine.Scene:getGameObject(actor);
+        Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
     end
     Engine.Scene:getGameObject("camera").actor = Object.actor.Collider;
+    MoveActor("up", false);
+    MoveActor("down", false);
+    MoveActor("left", false);
+    MoveActor("right", false);
+    Object.aiming_wheel:setActor(Object.actor);
 end
 
 function MoveActor(direction, state)

@@ -393,38 +393,6 @@ Tiles:
                     }],
                 unit: "ScenePixels"
                 }, {
-                id: 48,
-                points: [{
-                    x: 0,
-                    y: 0
-                    }, {
-                    x: 32,
-                    y: 0
-                    }, {
-                    x: 32,
-                    y: 128
-                    }, {
-                    x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
-                }, {
-                id: 49,
-                points: [{
-                    x: 96,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 128
-                    }, {
-                    x: 96,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
-                }, {
                 id: 54,
                 points: [{
                     x: 0,
@@ -453,38 +421,6 @@ Tiles:
                     y: 128
                     }, {
                     x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
-                }, {
-                id: 68,
-                points: [{
-                    x: 0,
-                    y: 0
-                    }, {
-                    x: 32,
-                    y: 0
-                    }, {
-                    x: 32,
-                    y: 128
-                    }, {
-                    x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
-                }, {
-                id: 69,
-                points: [{
-                    x: 96,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 128
-                    }, {
-                    x: 96,
                     y: 128
                     }],
                 unit: "ScenePixels"
@@ -600,23 +536,22 @@ Tiles:
                     y: 128
                     }],
                 unit: "ScenePixels"
-                },
-                {
-                    id: 102,
-                    points: [{
-                        x: 0,
-                        y: 0
-                        }, {
-                        x: 128,
-                        y: 0
-                        }, {
-                        x: 128,
-                        y: 128
-                        }, {
-                        x: 0,
-                        y: 128
-                        }],
-                    unit: "ScenePixels"
+                }, {
+                id: 102,
+                points: [{
+                    x: 0,
+                    y: 0
+                    }, {
+                    x: 128,
+                    y: 0
+                    }, {
+                    x: 128,
+                    y: 128
+                    }, {
+                    x: 0,
+                    y: 128
+                    }],
+                unit: "ScenePixels"
                 }, {
                 id: 103,
                 points: [{
@@ -665,22 +600,23 @@ Tiles:
                     y: 128
                     }],
                 unit: "ScenePixels"
-                }, {
-                id: 116,
-                points: [{
-                    x: 0,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 128
-                    }, {
-                    x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
+                },
+                {
+                    id: 116,
+                    points: [{
+                        x: 0,
+                        y: 0
+                        }, {
+                        x: 128,
+                        y: 0
+                        }, {
+                        x: 128,
+                        y: 128
+                        }, {
+                        x: 0,
+                        y: 128
+                        }],
+                    unit: "ScenePixels"
                 }, {
                 id: 117,
                 points: [{
@@ -921,23 +857,22 @@ Tiles:
                     y: 128
                     }],
                 unit: "ScenePixels"
-                },
-                {
-                    id: 165,
-                    points: [{
-                        x: 0,
-                        y: 0
-                        }, {
-                        x: 128,
-                        y: 0
-                        }, {
-                        x: 128,
-                        y: 128
-                        }, {
-                        x: 0,
-                        y: 128
-                        }],
-                    unit: "ScenePixels"
+                }, {
+                id: 165,
+                points: [{
+                    x: 0,
+                    y: 0
+                    }, {
+                    x: 128,
+                    y: 0
+                    }, {
+                    x: 128,
+                    y: 128
+                    }, {
+                    x: 0,
+                    y: 128
+                    }],
+                unit: "ScenePixels"
                 }, {
                 id: 166,
                 points: [{
@@ -986,22 +921,23 @@ Tiles:
                     y: 128
                     }],
                 unit: "ScenePixels"
-                }, {
-                id: 170,
-                points: [{
-                    x: 0,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 128
-                    }, {
-                    x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
+                },
+                {
+                    id: 170,
+                    points: [{
+                        x: 0,
+                        y: 0
+                        }, {
+                        x: 128,
+                        y: 0
+                        }, {
+                        x: 128,
+                        y: 128
+                        }, {
+                        x: 0,
+                        y: 128
+                        }],
+                    unit: "ScenePixels"
                 }, {
                 id: 171,
                 points: [{
@@ -1179,38 +1115,6 @@ Tiles:
                     }],
                 unit: "ScenePixels"
                 }, {
-                id: 205,
-                points: [{
-                    x: 0,
-                    y: 0
-                    }, {
-                    x: 32,
-                    y: 0
-                    }, {
-                    x: 32,
-                    y: 128
-                    }, {
-                    x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
-                }, {
-                id: 206,
-                points: [{
-                    x: 96,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 128
-                    }, {
-                    x: 96,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
-                }, {
                 id: 209,
                 points: [{
                     x: 0,
@@ -1242,23 +1146,22 @@ Tiles:
                     y: 128
                     }],
                 unit: "ScenePixels"
-                },
-                {
-                    id: 214,
-                    points: [{
-                        x: 0,
-                        y: 0
-                        }, {
-                        x: 128,
-                        y: 0
-                        }, {
-                        x: 128,
-                        y: 128
-                        }, {
-                        x: 0,
-                        y: 128
-                        }],
-                    unit: "ScenePixels"
+                }, {
+                id: 214,
+                points: [{
+                    x: 0,
+                    y: 0
+                    }, {
+                    x: 128,
+                    y: 0
+                    }, {
+                    x: 128,
+                    y: 128
+                    }, {
+                    x: 0,
+                    y: 128
+                    }],
+                unit: "ScenePixels"
                 }, {
                 id: 218,
                 points: [{
@@ -1339,22 +1242,23 @@ Tiles:
                     y: 128
                     }],
                 unit: "ScenePixels"
-                }, {
-                id: 234,
-                points: [{
-                    x: 0,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 0
-                    }, {
-                    x: 128,
-                    y: 128
-                    }, {
-                    x: 0,
-                    y: 128
-                    }],
-                unit: "ScenePixels"
+                },
+                {
+                    id: 234,
+                    points: [{
+                        x: 0,
+                        y: 0
+                        }, {
+                        x: 128,
+                        y: 0
+                        }, {
+                        x: 128,
+                        y: 128
+                        }, {
+                        x: 0,
+                        y: 128
+                        }],
+                    unit: "ScenePixels"
                 }, {
                 id: 238,
                 points: [{

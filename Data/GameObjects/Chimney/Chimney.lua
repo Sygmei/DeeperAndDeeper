@@ -90,10 +90,6 @@ function Local.Init(x, y)
     Trajectories:setProbe(This.Collider);
     trajectory = Trajectories:addTrajectory("direction"):setSpeed(0):setAngle(-90):setAcceleration(0);
 
-    -- Aiming wheel
-    Object.aiming_wheel = Engine.Scene:createGameObject("AimingWheel")({active=false, texture="sprites://Aim/aim_medium.png", pos=This.SceneNode:getPosition()});
-    This.SceneNode:addChild(Object.aiming_wheel:getSceneNode());
-
     -- Sliding against walls when more than one direction is active
     trajectory:addCheck(function(self, offset)
         local collision = This.Collider:getMaximumDistanceBeforeCollision(offset);

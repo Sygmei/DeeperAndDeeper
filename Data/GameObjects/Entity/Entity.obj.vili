@@ -1,5 +1,4 @@
 Entity:
-    Animator: {path:""}
     Sprite:
         rect:
             x: 0
@@ -19,5 +18,6 @@ Entity:
         unit: "ScenePixels"
         tag: "Entity"
         reject: ["Entity"]
+        accept: ["NONE"]
     Script:
         source:  "self://Entity.lua"
