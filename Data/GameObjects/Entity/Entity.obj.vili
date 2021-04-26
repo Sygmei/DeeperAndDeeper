@@ -17,5 +17,8 @@ Entity:
             {x: 22, y: 164}
         ]
         unit: "ScenePixels"
+        tag: "Entity"
+        reject: ["Entity"]
+        accept: ["NONE"]
     Script:
         source:  "self://Entity.lua"

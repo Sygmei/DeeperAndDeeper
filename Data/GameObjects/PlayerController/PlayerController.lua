@@ -6,7 +6,7 @@ end
 function Object:control(actor)
     if actor ~= nil then
         Object.actor = Engine.Scene:getGameObject(actor);
-        --Object.actor.Collider:clearTags(obe.Collision.ColliderTagType.Accepted);
+        Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
     end
     Engine.Scene:getGameObject("camera").actor = Object.actor.Collider;
     MoveActor("up", false);

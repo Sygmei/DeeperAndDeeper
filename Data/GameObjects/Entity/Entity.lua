@@ -69,7 +69,6 @@ function Local.Init(x, y, kind)
     Object.active_movements = {left = false, right = false, up = false, down = false};
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
     This.SceneNode:setPosition(obe.Transform.UnitVector(x, y, obe.Transform.Units.ScenePixels));
-    Object.Collider:addTag(obe.Collision.ColliderTagType.Accepted, "NONE");
     Trajectories = obe.Collision.TrajectoryNode(This.SceneNode);
     Trajectories:setProbe(This.Collider);
     trajectory = Trajectories:addTrajectory("direction"):setSpeed(0):setAngle(-90):setAcceleration(0);
