@@ -15,6 +15,7 @@ function Local.Init(active, texture, pivot, actor)
 end
 
 function Object:setSprite(texture, pivot)
+    This.Sprite:setColor(obe.Graphics.Color(255, 255, 255, 100));
     This.Sprite:loadTexture(texture);
     This.Sprite:useTextureSize();
     pivot_ref = pivot or pivot_ref;

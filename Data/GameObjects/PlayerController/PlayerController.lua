@@ -24,10 +24,17 @@ function Object:control(actor_id)
     if actor_id == nil then
         return;
     end
+    if Object.actor ~= nil then
+        Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Tag, "Friend");
+        Object.actor.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Enemy");
+        Object.actor.is_enemy = true;
+    end
     Object.actor = Engine.Scene:getGameObject(actor_id);
+    Object.actor.is_enemy = false;
+    Object.actor.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Friend");
+    Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Tag, "Enemy");
     Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
     if Object.actor.Collider:doesCollide(obe.Transform.UnitVector()) then
-        print("COLLISIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
         local camera_scale = Engine.Scene:getCamera():getSize().y / 2;
         local tile_width = Engine.Scene:getTiles():getTileWidth() / camera_scale;
         local tile_height = Engine.Scene:getTiles():getTileHeight() / camera_scale;

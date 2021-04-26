@@ -16,11 +16,19 @@ end
 
 function HitboxAt(hitbox)
     local hitbox_manager = Engine.Scene:getGameObject("hitboxes");
-    local hitbox = hitbox_manager:createHitbox(hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or {}, hitbox.onhit);
+    local hitbox = hitbox_manager:createHitbox(hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or function() return {} end, hitbox.onhit);
     hitbox.delete = function()
         hitbox_manager:removeHitbox(hitbox.id);
     end
     return hitbox;
+end
+
+function DynamicHitboxIgnore(self)
+    if self.is_enemy then
+        return {Enemy=true};
+    else
+        return {Friend=true};
+    end
 end
 
 Powers = {};
@@ -67,6 +75,19 @@ Powers.projectiles = {
     cooldown = 1
 }
 
+Powers.invincibility = {
+    oncreate = function(self, destination)
+        self.invincible = true;
+        self.Sprite:setColor(obe.Graphics.Color(255, 255, 255, 100));
+    end,
+    ondelete = function(self)
+        self.invincible = false;
+        self.Sprite:setColor(obe.Graphics.Color(255, 255, 255, 255));
+    end,
+    duration = 3,
+    cooldown = 10
+}
+
 Powers.dodge = {
     oncreate = function(self, destination)
         self.speed = self.speed * 4;
@@ -85,8 +106,8 @@ Powers.weapon = {
         self.weapon.hitbox = HitboxAt {
             position = self.weapon.sprite:getPosition(),
             size = self.weapon.sprite:getSize(),
-            damage = 1,
-            ignore = {self.id},
+            damage = 5,
+            ignore = DynamicHitboxIgnore,
             onhit = function()
                 self.power_container.punch_audio:play();
             end
@@ -106,13 +127,15 @@ Powers.smoke = {
             y = destination.y,
             particle = "Firesmoke"
         }]]
+        self.power_container.smoke_sound = Engine.Audio:load(obe.System.Path("dad://Sounds/bomb.ogg"));
+        self.power_container.smoke_sound:play();
         self.power_container.smoke = ParticleAt("Firesmoke", obe.Transform.UnitVector(destination.x, destination.y, obe.Transform.Units.ScenePixels), obe.Transform.UnitVector(1, 1));
         self.power_container.smoke_hitbox = HitboxAt {
             position = self.power_container.smoke.sprite:getPosition(),
             size = self.power_container.smoke.sprite:getSize(),
-            damage = 1,
+            damage = 10,
             hitrate = 3,
-            ignore = {self.id},
+            ignore = DynamicHitboxIgnore,
         }
     end,
     onupdate = function(self, dt)
@@ -130,18 +153,24 @@ Powers.smoke = {
 Powers.knife = {
     oncreate = function(self, destination)
         self.Animator:setKey("KNIFE");
+        self.speed = self.speed * 1.5;
+        self.power_container.knife_audio = Engine.Audio:load(obe.System.Path("dad://Sounds/knife.ogg"));
         self.power_container.knife = HitboxAt {
             position = self.Sprite:getPosition(),
             size = self.Sprite:getSize(),
             damage = 1,
-            hitrate = 2,
-            ignore = {self.id}
+            hitrate = 0.2,
+            ignore = DynamicHitboxIgnore,
+            onhit = function()
+                self.power_container.knife_audio:play();
+            end
         }
     end,
     ondelete = function(self)
         self.power_container.knife.delete();
+        self.speed = 0.5;
     end,
-    duration = 1.8,
+    duration = 1.2,
     cooldown = 2,
 }
 

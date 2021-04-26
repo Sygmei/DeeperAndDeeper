@@ -25,6 +25,9 @@ function make_weapon(self, path)
         end,
         hit = function()
             animator:setKey("HIT");
+        end,
+        delete = function()
+            Engine.Scene:removeSprite(sprite:getId());
         end
     }
 end
@@ -35,7 +38,8 @@ Entities.Psychoanalyst = {
     skin = "Psychoanalyst",
     primary = "dodge",
     secondary = "possession",
-    controllable = false
+    controllable = false,
+    hp = 10
 };
 
 Entities.Chimney = {
@@ -53,11 +57,16 @@ Entities.Chimney = {
         self.smoke.Sprite:setPosition(self.Collider:getCentroid() + obe.Transform.UnitVector(0.02, -0.12), obe.Transform.Referential.Bottom);
         self.weapon.update(self);
     end,
+    ondelete = function(self)
+        self.smoke:delete();
+        self.weapon.delete();
+    end,
     skin = "Chimney",
     primary = "weapon",
     secondary = "smoke",
     controllable = true,
     aim = "big",
+    hp = 25
 };
 
 Entities.Knifey = {
@@ -67,24 +76,27 @@ Entities.Knifey = {
     controllable = true,
     oncreate = function(self)
         self.Animator:setTarget(self.Sprite, obe.Animation.AnimatorTargetScaleMode.KeepRatio);
-    end
+    end,
+    hp = 10
 };
 
 Entities.Ocular = {
     skin = "Ocular",
     primary = "dodge",
-    secondary = "smoke",
+    secondary = "invincibility",
     controllable = true,
     oncreate = function(self)
         self.Animator:setTarget(self.Sprite, obe.Animation.AnimatorTargetScaleMode.KeepRatio);
-    end
+    end,
+    hp = 15
 };
 
 Entities.Patient = {
     skin = "Patient",
     primary = "dodge",
     secondary = "possession",
-    controllable = false
+    controllable = false,
+    hp = 100
 }
 
 return Entities;
