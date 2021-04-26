@@ -40,6 +40,7 @@ Entities.Psychoanalyst = {
 
 Entities.Chimney = {
     oncreate = function(self)
+        self.Animation:setTarget(self.Sprite, obe.Animation.AnimatorTargetScaleMode.KeepRatio);
         self.Sprite:move(obe.Transform.UnitVector(-0.045, 0.01));
         self.smoke = Engine.Scene:createGameObject("ParticleEmitter") {
             x = 0,
@@ -59,10 +60,13 @@ Entities.Chimney = {
 };
 
 Entities.Knifey = {
-    skin = "Chimney",
-    primary = "weapon",
+    skin = "Knifey",
+    primary = "knife",
     secondary = "smoke",
     controllable = true,
+    oncreate = function(self)
+        self.Animation:setTarget(self.Sprite, obe.Animation.AnimatorTargetScaleMode.KeepRatio);
+    end
 };
 
 Entities.Patient = {

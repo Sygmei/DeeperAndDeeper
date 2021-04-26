@@ -1,0 +1,16 @@
+Meta:
+    name: "Claws"
+    clock: 0.016
+    mode: "Loop"
+
+Images:
+    images: ["claws_0.png", "claws_1.png", "claws_2.png", "claws_3.png", "claws_4.png", "claws_5.png", "claws_6.png", "claws_7.png", "claws_8.png", "claws_9.png", "claws_10.png", "claws_11.png", "claws_12.png", "claws_13.png", "claws_14.png", "claws_15.png", "claws_16.png", "claws_17.png", "claws_18.png", "claws_19.png", "claws_20.png", "claws_21.png", "claws_22.png", "claws_23.png", "claws_24.png", "claws_25.png", "claws_26.png", "claws_27.png", "claws_28.png", "claws_29.png", "claws_30.png", "claws_31.png", "claws_32.png", "claws_33.png", "claws_34.png", "claws_35.png", "claws_36.png", "claws_37.png", "claws_38.png", "claws_39.png", "claws_40.png", "claws_41.png", "claws_42.png", "claws_43.png", "claws_44.png", "claws_45.png", "claws_46.png", "claws_47.png", "claws_48.png", "claws_49.png", "claws_50.png", "claws_51.png", "claws_52.png", "claws_53.png", "claws_54.png", "claws_55.png", "claws_56.png", "claws_57.png", "claws_58.png", "claws_59.png", "claws_60.png", "claws_61.png", "claws_62.png", "claws_63.png", "claws_64.png", "claws_65.png", "claws_66.png", "claws_67.png", "claws_68.png", "claws_69.png", "claws_70.png", "claws_71.png", "claws_72.png", "claws_73.png", "claws_74.png", "claws_75.png", "claws_76.png", "claws_77.png", "claws_78.png", "claws_79.png", "claws_80.png", "claws_81.png", "claws_82.png", "claws_83.png", "claws_84.png", "claws_85.png", "claws_86.png", "claws_87.png", "claws_88.png", "claws_89.png", "claws_90.png", "claws_91.png", "claws_92.png", "claws_93.png", "claws_94.png", "claws_95.png", "claws_96.png", "claws_97.png", "claws_98.png", "claws_99.png", "claws_100.png", "claws_101.png"]
+
+Groups:
+    main:
+        content: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101]
+
+Animation:
+    code: [
+        play_group { group:"main" }
+    ]

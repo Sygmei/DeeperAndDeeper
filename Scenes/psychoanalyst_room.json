@@ -45,6 +45,30 @@
          "objects":[
                 {
                  "height":0,
+                 "id":9,
+                 "name":"animations",
+                 "point":true,
+                 "rotation":0,
+                 "type":"AnimationManager",
+                 "visible":true,
+                 "width":0,
+                 "x":0,
+                 "y":-100
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"hitboxes",
+                 "point":true,
+                 "rotation":0,
+                 "type":"HitboxManager",
+                 "visible":true,
+                 "width":0,
+                 "x":0,
+                 "y":-200
+                }, 
+                {
+                 "height":0,
                  "id":1,
                  "name":"vn",
                  "point":true,
@@ -139,26 +163,8 @@
                 }, 
                 {
                  "height":0,
-                 "id":6,
-                 "name":"smoke",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"particle",
-                         "type":"string",
-                         "value":"Smoke"
-                        }],
-                 "rotation":0,
-                 "type":"ParticleEmitter",
-                 "visible":true,
-                 "width":0,
-                 "x":1788.66666666667,
-                 "y":767.333333333333
-                }, 
-                {
-                 "height":0,
                  "id":7,
-                 "name":"chimney",
+                 "name":"knifey",
                  "point":true,
                  "properties":[
                         {
@@ -169,14 +175,14 @@
                         {
                          "name":"kind",
                          "type":"string",
-                         "value":"Chimney"
+                         "value":"Knifey"
                         }],
                  "rotation":0,
                  "type":"Entity",
                  "visible":true,
                  "width":0,
-                 "x":1320,
-                 "y":614
+                 "x":1453.33333333333,
+                 "y":762.484848484848
                 }, 
                 {
                  "height":0,
@@ -195,6 +201,29 @@
                  "width":0,
                  "x":200,
                  "y":-100
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"chimney",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"controllable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"kind",
+                         "type":"string",
+                         "value":"Chimney"
+                        }],
+                 "rotation":0,
+                 "type":"Entity",
+                 "visible":true,
+                 "width":0,
+                 "x":1318.18181818182,
+                 "y":596.969696969697
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -203,7 +232,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":9,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.5.0",

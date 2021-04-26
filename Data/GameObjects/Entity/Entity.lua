@@ -97,6 +97,12 @@ function Local.Init(x, y, kind)
     end
 end
 
+function Object:Hit(damage)
+    if ContainsAnimation("HIT") then
+        This.Animator:setKey("HIT");
+    end
+end
+
 function Object:UsePower(primary_or_secondary, position)
     local power = self.powers[primary_or_secondary];
     local cooldown = power.cooldown or 0;
@@ -157,7 +163,10 @@ function Event.Game.Update(event)
         end
     else
         trajectory:setSpeed(0);
-        This.Animator:setKey("IDLE_" .. This.Animator:getKey():gmatch("_([^%s]+)")())
+        local animation_name = This.Animator:getKey():gmatch("_([^%s]+)")();
+        if animation_name then
+            This.Animator:setKey("IDLE_" .. animation_name);
+        end
     end
     Trajectories:update(event.dt);
 end

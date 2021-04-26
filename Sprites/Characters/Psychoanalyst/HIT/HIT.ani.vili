@@ -1,0 +1,17 @@
+Meta:
+    name: "HIT"
+    clock: 0.016
+    mode: "Force"
+
+Images:
+    images: ["render.png_0.png", "render.png_1.png", "render.png_2.png", "render.png_3.png", "render.png_4.png", "render.png_5.png", "render.png_6.png", "render.png_7.png", "render.png_8.png", "render.png_9.png", "render.png_10.png", "render.png_11.png", "render.png_12.png", "render.png_13.png", "render.png_14.png", "render.png_15.png", "render.png_16.png", "render.png_17.png", "render.png_18.png", "render.png_19.png", "render.png_20.png", "render.png_21.png", "render.png_22.png", "render.png_23.png", "render.png_24.png", "render.png_25.png", "render.png_26.png", "render.png_27.png", "render.png_28.png", "render.png_29.png", "render.png_30.png", "render.png_31.png", "render.png_32.png", "render.png_33.png", "render.png_34.png", "render.png_35.png", "render.png_36.png", "render.png_37.png", "render.png_38.png", "render.png_39.png", "render.png_40.png", "render.png_41.png", "render.png_42.png", "render.png_43.png", "render.png_44.png", "render.png_45.png", "render.png_46.png", "render.png_47.png", "render.png_48.png", "render.png_49.png", "render.png_50.png", "render.png_51.png", "render.png_52.png", "render.png_53.png", "render.png_54.png", "render.png_55.png", "render.png_56.png", "render.png_57.png", "render.png_58.png", "render.png_59.png"]
+
+Groups:
+    main:
+        content: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+
+Animation:
+    code: [
+        play_group { group:"main" },
+        set_animation { animation: "IDLE_DOWN" }
+    ]

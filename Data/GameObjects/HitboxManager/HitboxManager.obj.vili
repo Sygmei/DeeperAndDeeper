@@ -1,0 +1,3 @@
+HitboxManager:
+    Script:
+        source: "self://HitboxManager.lua"

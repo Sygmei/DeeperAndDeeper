@@ -1,3 +1,28 @@
+function ParticleAt(particle, position, scale)
+    local particle_animator = Engine.Scene:getGameObject("animations"):use("Particles");
+    local particle_sprite = Engine.Scene:createSprite();
+    particle_animator:setTarget(particle_sprite);
+    particle_sprite:setLayer(0);
+    particle_sprite:setZDepth(1);
+    particle_sprite:setSize(scale);
+    particle_sprite:setVisible(false);
+    particle_sprite:setPosition(obe.Transform.UnitVector(position.x, position.y, obe.Transform.Units.ScenePixels), obe.Transform.Referential.Center);
+    particle_animator:setKey(particle);
+    return {
+        animator=particle_animator,
+        sprite=particle_sprite,
+    }
+end
+
+function HitboxAt(hitbox)
+    local hitbox_manager = Engine.Scene:getGameObject("hitboxes");
+    local hitbox = hitbox_manager:createHitbox(hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or {});
+    hitbox.delete = function()
+        hitbox_manager:removeHitbox(hitbox.id);
+    end
+    return hitbox;
+end
+
 Powers = {};
 
 Powers.null = {
@@ -10,13 +35,26 @@ Powers.possession = {
             print(gameObject.id, gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels).x, gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels).y, gameObject.controllable);
             if gameObject ~= self and gameObject.controllable and gameObject.Sprite:contains(destination) then
                 playerController = Engine.Scene:getGameObject("player_controller");
-                playerController.actor:delete();
+                -- playerController.actor:delete();
                 playerController.actor = gameObject;
+                self.power_container.mind_control = ParticleAt("Mindcontrol", gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels) + obe.Transform.UnitVector(0, -0.2), obe.Transform.UnitVector(0.5, 0.5));
                 Engine.Scene:getGameObject("camera").actor = playerController.actor.Collider;
                 return
             end
         end
     end,
+    onupdate = function(self, destination)
+        if self.power_container.mind_control then
+            self.power_container.mind_control.animator:update();
+            self.power_container.mind_control.sprite:setVisible(true);
+        end
+    end,
+    ondelete = function(self)
+        if self.power_container.mind_control then
+            Engine.Scene:removeSprite(self.power_container.mind_control.sprite:getId());
+        end
+    end,
+    duration = 2.5,
     cooldown = 10
 }
 
@@ -45,43 +83,64 @@ Powers.dodge = {
 Powers.weapon = {
     oncreate = function(self, destination)
         self.weapon:hit();
+        self.weapon.hitbox = HitboxAt {
+            position = self.weapon.sprite:getPosition(),
+            size = self.weapon.sprite:getSize(),
+            damage = 1,
+            ignore = {self.id}
+        }
     end,
     ondelete = function(self)
+        self.weapon.hitbox.delete();
     end,
-    duration = 0.7,
-    cooldown = 2
+    duration = 0.3,
+    cooldown = 1
 }
 
 Powers.smoke = {
-    animator = (function()
-        local animator = obe.Animation.Animator();
-        animator:load(obe.System.Path("dad://Sprites/Particles"), Engine.Resources);
-        return animator;
-    end)(),
     oncreate = function(self, destination)
         --[[self.power_container.smoke = Engine.Scene:createGameObject("ParticleEmitter") {
             x = destination.x,
             y = destination.y,
             particle = "Firesmoke"
         }]]
-        self.power_container.smoke_animator = obe.Animation.Animator();
-        self.power_container.smoke_sprite = Engine.Scene:createSprite();
-        self.power_container.smoke_animator:load(obe.System.Path("dad://Sprites/Particles"), Engine.Resources);
-        self.power_container.smoke_animator:setTarget(self.power_container.smoke_sprite);
-        self.power_container.smoke_sprite:setLayer(0);
-        self.power_container.smoke_sprite:setZDepth(1);
-        self.power_container.smoke_sprite:setSize(obe.Transform.UnitVector(1, 1));
-        self.power_container.smoke_sprite:setPosition(obe.Transform.UnitVector(destination.x, destination.y, obe.Transform.Units.ScenePixels), obe.Transform.Referential.Center);
-        self.power_container.smoke_animator:setKey("Firesmoke");
+        self.power_container.smoke = ParticleAt("Firesmoke", obe.Transform.UnitVector(destination.x, destination.y, obe.Transform.Units.ScenePixels), obe.Transform.UnitVector(1, 1));
+        self.power_container.smoke_hitbox = HitboxAt {
+            position = self.power_container.smoke.sprite:getPosition(),
+            size = self.power_container.smoke.sprite:getSize(),
+            damage = 1,
+            hitrate = 3,
+            ignore = {self.id}
+        }
     end,
     onupdate = function(self, dt)
-        self.power_container.smoke_animator:update();
+        self.power_container.smoke.animator:update();
+        self.power_container.smoke.sprite:setVisible(true);
     end,
     ondelete = function(self)
-        Engine.Scene:removeSprite(self.power_container.smoke_sprite:getId());
+        self.power_container.smoke_hitbox.delete();
+        Engine.Scene:removeSprite(self.power_container.smoke.sprite:getId());
     end,
     duration = 2,
-    cooldown = 10
+    cooldown = 7
+}
+
+Powers.knife = {
+    oncreate = function(self, destination)
+        self.Animation:setKey("KNIFE");
+        self.power_container.knife = HitboxAt {
+            position = self.Sprite:getPosition(),
+            size = self.Sprite:getSize(),
+            damage = 1,
+            hitrate = 2,
+            ignore = {self.id}
+        }
+    end,
+    ondelete = function(self)
+        self.power_container.knife.delete();
+    end,
+    duration = 1.8,
+    cooldown = 2,
 }
 
 return Powers;

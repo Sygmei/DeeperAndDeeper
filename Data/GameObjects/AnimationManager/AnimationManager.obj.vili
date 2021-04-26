@@ -1,0 +1,3 @@
+AnimationManager:
+    Script:
+        source: "self://AnimationManager.lua"

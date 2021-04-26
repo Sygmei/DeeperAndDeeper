@@ -518,6 +518,26 @@ Tiles:
         
     
 GameObjects: 
+    animations: 
+        type: "AnimationManager"
+        Requires: 
+            x: 0.0
+            y: -100.0
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
+            
+        
+    hitboxes: 
+        type: "HitboxManager"
+        Requires: 
+            x: 0.0
+            y: -200.0
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
+            
+        
     vn: 
         type: "VisualNovel"
         Requires: 
@@ -574,27 +594,16 @@ GameObjects:
             kind: "Patient"
             
         
-    smoke: 
-        type: "ParticleEmitter"
-        Requires: 
-            x: 1788.6666259765625
-            y: 767.3333129882812
-            width: 0.0
-            height: 0.0
-            rotation: 0.0
-            particle: "Smoke"
-            
-        
-    chimney: 
+    knifey: 
         type: "Entity"
         Requires: 
-            x: 1320.0
-            y: 614.0
+            x: 1453.3333740234375
+            y: 762.48486328125
             width: 0.0
             height: 0.0
             rotation: 0.0
             controllable: true
-            kind: "Chimney"
+            kind: "Knifey"
             
         
     player_controller: 
@@ -606,6 +615,18 @@ GameObjects:
             height: 0.0
             rotation: 0.0
             actor: "character"
+            
+        
+    chimney: 
+        type: "Entity"
+        Requires: 
+            x: 1318.1817626953125
+            y: 596.9697265625
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
+            controllable: true
+            kind: "Chimney"
             
         
     

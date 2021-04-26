@@ -2,7 +2,7 @@ Sequences = {};
 
 function Sequences.room_0_0()
     local render_options = obe.Scene.SceneRenderOptions();
-    render_options.collisions = true;
+    -- render_options.collisions = true;
     -- render_options.sceneNodes = true;
     Engine.Scene:setRenderOptions(render_options);
     Engine.Scene:getGameObject("camera").custom_scale = 1;

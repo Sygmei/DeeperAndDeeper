@@ -1,0 +1,17 @@
+Meta:
+    name: "KNIFE"
+    clock: 0.016
+    mode: "Force"
+
+Images:
+    images: ["render.png_41.png", "render.png_42.png", "render.png_43.png", "render.png_44.png", "render.png_45.png", "render.png_46.png", "render.png_47.png", "render.png_48.png", "render.png_49.png", "render.png_50.png", "render.png_51.png", "render.png_52.png", "render.png_53.png", "render.png_54.png", "render.png_55.png", "render.png_56.png", "render.png_57.png", "render.png_58.png", "render.png_59.png", "render.png_60.png", "render.png_61.png", "render.png_62.png", "render.png_63.png", "render.png_64.png", "render.png_65.png", "render.png_66.png", "render.png_67.png", "render.png_68.png", "render.png_69.png", "render.png_70.png", "render.png_71.png", "render.png_72.png", "render.png_73.png", "render.png_74.png", "render.png_75.png", "render.png_76.png", "render.png_77.png", "render.png_78.png", "render.png_79.png", "render.png_80.png", "render.png_81.png", "render.png_82.png", "render.png_83.png", "render.png_84.png", "render.png_85.png", "render.png_86.png", "render.png_87.png", "render.png_88.png", "render.png_89.png", "render.png_90.png", "render.png_91.png", "render.png_92.png", "render.png_93.png", "render.png_94.png", "render.png_95.png", "render.png_96.png", "render.png_97.png", "render.png_98.png", "render.png_99.png", "render.png_100.png", "render.png_101.png", "render.png_102.png", "render.png_103.png", "render.png_104.png", "render.png_105.png", "render.png_106.png", "render.png_107.png", "render.png_108.png", "render.png_109.png", "render.png_110.png", "render.png_111.png", "render.png_112.png", "render.png_113.png", "render.png_114.png", "render.png_115.png", "render.png_116.png", "render.png_117.png", "render.png_118.png", "render.png_119.png"]
+
+Groups:
+    main:
+        content: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78]
+
+Animation:
+    code: [
+        play_group { group:"main" },
+        set_animation { animation: "IDLE_DOWN" }
+    ]
