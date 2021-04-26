@@ -53,8 +53,13 @@ end
 local Entities = require "scripts://Entities";
 
 function Local.Init(x, y, kind)
+    Object.Collider:addTag(obe.Collision.ColliderTagType.Tag, kind);
+    Object.is_enemy = true;
+    Object.invincible = false;
     Object.active_powers = {};
     Object.power_container = {};
+    Object.max_hp = Entities[kind].hp;
+    Object.hp = Object.max_hp;
     Object.cooldowns = {primary = 0, secondary = 0};
     Object.speed = default_speed;
     Object.kind = kind;
@@ -98,9 +103,18 @@ function Local.Init(x, y, kind)
     end
 end
 
+function Local.Delete()
+    Entities[Object.kind].ondelete(Object);
+end
+
 function Object:Hit(damage)
     if ContainsAnimation("HIT") then
         Object.Animator:setKey("HIT");
+    end
+    print("Aie", Object.hp);
+    Object.hp = Object.hp - damage;
+    if Object.hp <= 0 then
+        This:deleteObject();
     end
 end
 

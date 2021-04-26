@@ -1,8 +1,6 @@
 SPEED = 400 --pxl/s
 
 function Local.Init(center, destination)
-    print(center.x, center.y)
-    print(destination.x, destination.y)
     Object.center = center
     Object.vecUnit = Vector2(destination.x - center.x, destination.y - center.y):normalize()
     while vecUnit == 0 do

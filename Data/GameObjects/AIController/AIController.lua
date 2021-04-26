@@ -18,8 +18,6 @@ end
 function UsePower(entity)
     local position = entity:GetCurrentPosition();
     local character_position = Engine.Scene:getGameObject("player_controller").actor:GetCurrentPosition();
-    print(character_position.x, character_position.y);
-    print(position.x, position.y);
     if character_position.x - 1 <= position.x and position.x <= character_position.x + 1
     and character_position.y - 1 <= position.y and position.y <= character_position.y + 1 then
         entity:UsePower("primary");
