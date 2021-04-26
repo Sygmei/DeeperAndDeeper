@@ -73,7 +73,6 @@ Powers.dodge = {
         self.speed = self.speed * 4;
     end,
     ondelete = function(self)
-        print("ONDELELELELEL")
         self.speed = 0.5;
     end,
     duration = 0.25,

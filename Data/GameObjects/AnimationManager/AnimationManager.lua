@@ -2,6 +2,14 @@ function Local.Init()
     Object.animators = {};
 
     Object:preload("Particles", "dad://Sprites/Particles");
+    Object:preload_room_1();
+end
+
+function Object:preload_room_1()
+    Object:preload("Chimney", "dad://Sprites/Characters/Chimney");
+    Object:preload("Psychoanalyst", "dad://Sprites/Characters/Psychoanalyst");
+    Object:preload("Knifey", "dad://Sprites/Characters/Knifey");
+    Object:preload("Patient", "dad://Sprites/Characters/Patient");
 end
 
 function Object:preload(id, path)
@@ -11,5 +19,8 @@ function Object:preload(id, path)
 end
 
 function Object:use(id)
+    if Object.animators[id] == nil then
+        error("Animator " .. id .. " is not preloaded")
+    end
     return Object.animators[id]:makeState();
 end

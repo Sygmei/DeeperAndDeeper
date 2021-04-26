@@ -34,7 +34,7 @@
     "openFiles": [
     ],
     "project": "dad.tiled-project",
-    "property.type": "bool",
+    "property.type": "int",
     "recentFiles": [
         "Scenes/psychoanalyst_room.json"
     ],

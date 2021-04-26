@@ -1,6 +1,6 @@
 VisualNovel:
     Sprite:
-        layer:0
+        layer:-1
         zdepth:1
         rect:
             x: 0

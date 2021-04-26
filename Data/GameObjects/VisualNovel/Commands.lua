@@ -141,7 +141,7 @@ function commands.come(command)
     command.actor.expression = command.actor.sprites[command.actor.default];
     Object.elements[command.actor.full_id] =
         Engine.Scene:createSprite(command.actor.full_id);
-    Object.elements[command.actor.full_id]:setLayer(0);
+    Object.elements[command.actor.full_id]:setLayer(-1);
     Object.elements[command.actor.full_id]:setZDepth(2);
     Object.elements[command.actor.full_id]:setPositionTransformer(obe.Graphics.PositionTransformer("Position", "Position"));
     Object.elements[command.actor.full_id]:setPosition(

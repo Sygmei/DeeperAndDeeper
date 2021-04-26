@@ -36,7 +36,7 @@ function icons.arrow()
     local icon_sprite = Engine.Scene:createSprite();
     icon_sprite:loadTexture("Sprites/VisualNovel/arrow.png");
     icon_sprite:setSize(obe.Transform.UnitVector(0.2 * 0.6925, 0.2));
-    icon_sprite:setLayer(0);
+    icon_sprite:setLayer(-1);
     icon_sprite:setZDepth(0);
     icon_sprite:setPositionTransformer(obe.Graphics.PositionTransformer("Position", "Position"));
 
@@ -68,7 +68,7 @@ function icons.wait()
     local icon_sprite = Engine.Scene:createSprite();
     icon_sprite:loadTexture("Sprites/VisualNovel/wait.png");
     icon_sprite:setSize(obe.Transform.UnitVector(0.2, 0.2));
-    icon_sprite:setLayer(0);
+    icon_sprite:setLayer(-1);
     icon_sprite:setZDepth(0);
     icon_sprite:setPositionTransformer(obe.Graphics.PositionTransformer("Position", "Position"));
 
@@ -95,13 +95,13 @@ end
 function icons.clock(time)
     local block_bg = Engine.Scene:createSprite();
     block_bg:loadTexture("Sprites/VisualNovel/clock_bg.png");
-    block_bg:setLayer(0);
+    block_bg:setLayer(-1);
     block_bg:setZDepth(0);
     block_bg:setSize(obe.Transform.UnitVector(0.2, 0.2));
     block_bg:setPositionTransformer(obe.Graphics.PositionTransformer("Position", "Position"));
 
     local clock_hand = Engine.Scene:createSprite();
-    clock_hand:setLayer(0);
+    clock_hand:setLayer(-1);
     clock_hand:setZDepth(0);
     clock_hand:loadTexture("Sprites/VisualNovel/clock_hand.png");
     clock_hand:setSize(obe.Transform.UnitVector(0.2, 0.2));

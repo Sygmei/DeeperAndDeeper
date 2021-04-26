@@ -35,7 +35,7 @@ function Object:removeHitbox(id)
         end
     end
     if index then
-        table.remove(Object.hitboxes);
+        table.remove(Object.hitboxes, index);
     end
 end
 
