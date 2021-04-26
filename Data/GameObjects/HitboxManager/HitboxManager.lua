@@ -5,13 +5,14 @@ function Local.Init()
     Object.active_hits = {};
 end
 
-function Object:createHitbox(position, size, damage, hitrate, ignore, onhit)
+function Object:createHitbox(actor, position, size, damage, hitrate, ignore, onhit)
     local rect = obe.Transform.Rect();
     rect:setPosition(position);
     rect:setSize(size);
     unique_id = unique_id + 1;
 
     local hitbox = {
+        actor = actor,
         id = unique_id,
         rect = rect,
         damage = damage,
@@ -48,14 +49,7 @@ function Event.Game.Update(event)
                     local last_hit = Object.active_hits[game_object.id][hitbox.id] or 0;
 
                     if last_hit == 0 or (hitbox.hitrate >= 0 and obe.Time.epoch() - last_hit >= hitbox.hitrate) then
-                        local is_ignored = false;
-                        local ignored_tags = hitbox.ignore(game_object);
-                        print("Ignored tags", inspect(ignored_tags))
-                        for _, v in pairs(game_object.Collider:getAllTags(obe.Collision.ColliderTagType.Tag)) do
-                            if ignored_tags[v] then
-                                is_ignored = true;
-                            end
-                        end
+                        local is_ignored = hitbox.ignore(hitbox.actor, game_object);
                         if not is_ignored then
                             Object.active_hits[game_object.id][hitbox.id] = obe.Time.epoch();
                             game_object:Hit(hitbox.damage);

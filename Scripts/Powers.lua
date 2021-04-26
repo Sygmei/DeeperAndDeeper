@@ -16,19 +16,15 @@ end
 
 function HitboxAt(hitbox)
     local hitbox_manager = Engine.Scene:getGameObject("hitboxes");
-    local hitbox = hitbox_manager:createHitbox(hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or function() return {} end, hitbox.onhit);
+    local hitbox = hitbox_manager:createHitbox(hitbox.actor, hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or function() return {} end, hitbox.onhit);
     hitbox.delete = function()
         hitbox_manager:removeHitbox(hitbox.id);
     end
     return hitbox;
 end
 
-function DynamicHitboxIgnore(self)
-    if self.is_enemy then
-        return {Enemy=true};
-    else
-        return {Friend=true};
-    end
+function DynamicHitboxIgnore(self, other)
+    return self.is_enemy == other.is_enemy;
 end
 
 Powers = {};
@@ -105,6 +101,7 @@ Powers.weapon = {
         self.power_container.punch_audio = Engine.Audio:load(obe.System.Path("dad://Sounds/punch.ogg"));
         self.weapon:hit();
         self.weapon.hitbox = HitboxAt {
+            actor = self,
             position = self.weapon.sprite:getPosition(),
             size = self.weapon.sprite:getSize(),
             damage = 5,
@@ -133,6 +130,7 @@ Powers.smoke = {
         self.power_container.smoke_sound:play();
         self.power_container.smoke = ParticleAt("Firesmoke", obe.Transform.UnitVector(destination.x, destination.y, obe.Transform.Units.ScenePixels), obe.Transform.UnitVector(1, 1));
         self.power_container.smoke_hitbox = HitboxAt {
+            actor = self,
             position = self.power_container.smoke.sprite:getPosition(),
             size = self.power_container.smoke.sprite:getSize(),
             damage = 10,
@@ -159,6 +157,7 @@ Powers.knife = {
         self.speed = self.speed * 1.5;
         self.power_container.knife_audio = Engine.Audio:load(obe.System.Path("dad://Sounds/knife.ogg"));
         self.power_container.knife = HitboxAt {
+            actor = self,
             position = self.Sprite:getPosition(),
             size = self.Sprite:getSize(),
             damage = 1,
