@@ -9,11 +9,11 @@
     ],
     "fileStates": {
         "Scenes/psychoanalyst_room.json": {
-            "scale": 2,
-            "selectedLayer": 3,
+            "scale": 0.75,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 185.25,
-                "y": -129.5
+                "x": 1700.6666666666665,
+                "y": 2432
             }
         },
         "Scenes/test.json": {

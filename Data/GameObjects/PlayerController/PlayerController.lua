@@ -5,6 +5,10 @@ end
 
 function Object:control(actor)
     if Object.actor ~= nil then
+        MoveActor("up", false);
+        MoveActor("down", false);
+        MoveActor("left", false);
+        MoveActor("right", false);
         Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Tag, "Friend");
         Object.actor.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Enemy");
         Object.actor.is_enemy = true;

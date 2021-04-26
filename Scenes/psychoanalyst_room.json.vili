@@ -1562,3 +1562,15 @@ GameObjects:
             controllable: true
             kind: "Ocular"
 
+
+    ai_controller:
+        type: "AIController"
+        Requires:
+            x: 621.2120971679688
+            y: -193.93939208984375
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
+
+
+
