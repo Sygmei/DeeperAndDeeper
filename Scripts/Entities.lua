@@ -70,6 +70,16 @@ Entities.Knifey = {
     end
 };
 
+Entities.Ocular = {
+    skin = "Ocular",
+    primary = "dodge",
+    secondary = "smoke",
+    controllable = true,
+    oncreate = function(self)
+        self.Animator:setTarget(self.Sprite, obe.Animation.AnimatorTargetScaleMode.KeepRatio);
+    end
+};
+
 Entities.Patient = {
     skin = "Patient",
     primary = "dodge",

@@ -5,7 +5,7 @@ function Local.Init()
     Object.active_hits = {};
 end
 
-function Object:createHitbox(position, size, damage, hitrate, ignore)
+function Object:createHitbox(position, size, damage, hitrate, ignore, onhit)
     local rect = obe.Transform.Rect();
     rect:setPosition(position);
     rect:setSize(size);
@@ -21,7 +21,8 @@ function Object:createHitbox(position, size, damage, hitrate, ignore)
         rect = rect,
         damage = damage,
         hitrate = hitrate,
-        ignore = ignored_ids
+        ignore = ignored_ids,
+        onhit = onhit
     }
     table.insert(Object.hitboxes, hitbox);
     return hitbox;
@@ -54,6 +55,9 @@ function Event.Game.Update(event)
                     if hitbox.ignore[game_object.id] == nil then
                         Object.active_hits[game_object.id][hitbox.id] = obe.Time.epoch();
                         game_object:Hit(hitbox.damage);
+                        if hitbox.onhit ~= nil then
+                            hitbox:onhit();
+                        end
                     end
                 end
             end

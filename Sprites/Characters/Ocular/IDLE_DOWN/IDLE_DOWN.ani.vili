@@ -1,0 +1,16 @@
+Meta:
+    name: "IDLE_DOWN"
+    clock: 0.032
+    mode: "Loop"
+
+Images:
+    images: ["render.png_0.png", "render.png_1.png", "render.png_2.png", "render.png_3.png", "render.png_4.png", "render.png_5.png", "render.png_6.png", "render.png_7.png", "render.png_8.png", "render.png_9.png", "render.png_10.png", "render.png_11.png", "render.png_12.png", "render.png_13.png", "render.png_14.png", "render.png_15.png", "render.png_16.png", "render.png_17.png", "render.png_18.png", "render.png_19.png", "render.png_20.png", "render.png_21.png", "render.png_22.png", "render.png_23.png", "render.png_24.png", "render.png_25.png", "render.png_26.png", "render.png_27.png", "render.png_28.png", "render.png_29.png"]
+
+Groups:
+    main:
+        content: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+Animation:
+    code: [
+        play_group { group:"main" }
+    ]

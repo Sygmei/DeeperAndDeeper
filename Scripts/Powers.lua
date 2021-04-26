@@ -16,7 +16,7 @@ end
 
 function HitboxAt(hitbox)
     local hitbox_manager = Engine.Scene:getGameObject("hitboxes");
-    local hitbox = hitbox_manager:createHitbox(hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or {});
+    local hitbox = hitbox_manager:createHitbox(hitbox.position, hitbox.size, hitbox.damage, hitbox.hitrate or -1, hitbox.ignore or {}, hitbox.onhit);
     hitbox.delete = function()
         hitbox_manager:removeHitbox(hitbox.id);
     end
@@ -80,12 +80,16 @@ Powers.dodge = {
 
 Powers.weapon = {
     oncreate = function(self, destination)
+        self.power_container.punch_audio = Engine.Audio:load(obe.System.Path("dad://Sounds/punch.ogg"));
         self.weapon:hit();
         self.weapon.hitbox = HitboxAt {
             position = self.weapon.sprite:getPosition(),
             size = self.weapon.sprite:getSize(),
             damage = 1,
-            ignore = {self.id}
+            ignore = {self.id},
+            onhit = function()
+                self.power_container.punch_audio:play();
+            end
         }
     end,
     ondelete = function(self)
@@ -108,7 +112,7 @@ Powers.smoke = {
             size = self.power_container.smoke.sprite:getSize(),
             damage = 1,
             hitrate = 3,
-            ignore = {self.id}
+            ignore = {self.id},
         }
     end,
     onupdate = function(self, dt)

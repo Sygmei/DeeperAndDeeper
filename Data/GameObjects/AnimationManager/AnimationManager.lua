@@ -10,6 +10,7 @@ function Object:preload_room_1()
     Object:preload("Psychoanalyst", "dad://Sprites/Characters/Psychoanalyst");
     Object:preload("Knifey", "dad://Sprites/Characters/Knifey");
     Object:preload("Patient", "dad://Sprites/Characters/Patient");
+    Object:preload("Ocular", "dad://Sprites/Characters/Ocular");
 end
 
 function Object:preload(id, path)
