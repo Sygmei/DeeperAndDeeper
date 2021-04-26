@@ -1,0 +1,16 @@
+Meta:
+    name: "Firesmoke"
+    clock: 0.016
+    mode: "OneTime"
+
+Images:
+    images: ["firesmoke_0.png", "firesmoke_1.png", "firesmoke_2.png", "firesmoke_3.png", "firesmoke_4.png", "firesmoke_5.png", "firesmoke_6.png", "firesmoke_7.png", "firesmoke_8.png", "firesmoke_9.png", "firesmoke_10.png", "firesmoke_11.png", "firesmoke_12.png", "firesmoke_13.png", "firesmoke_14.png", "firesmoke_15.png", "firesmoke_16.png", "firesmoke_17.png", "firesmoke_18.png", "firesmoke_19.png", "firesmoke_20.png", "firesmoke_21.png", "firesmoke_22.png", "firesmoke_23.png", "firesmoke_24.png", "firesmoke_25.png", "firesmoke_26.png", "firesmoke_27.png", "firesmoke_28.png", "firesmoke_29.png", "firesmoke_30.png", "firesmoke_31.png", "firesmoke_32.png", "firesmoke_33.png", "firesmoke_34.png", "firesmoke_35.png", "firesmoke_36.png", "firesmoke_37.png", "firesmoke_38.png", "firesmoke_39.png", "firesmoke_40.png", "firesmoke_41.png", "firesmoke_42.png", "firesmoke_43.png", "firesmoke_44.png", "firesmoke_45.png", "firesmoke_46.png", "firesmoke_47.png", "firesmoke_48.png", "firesmoke_49.png", "firesmoke_50.png", "firesmoke_51.png", "firesmoke_52.png", "firesmoke_53.png", "firesmoke_54.png", "firesmoke_55.png", "firesmoke_56.png", "firesmoke_57.png", "firesmoke_58.png", "firesmoke_59.png", "firesmoke_60.png", "firesmoke_61.png", "firesmoke_62.png", "firesmoke_63.png", "firesmoke_64.png", "firesmoke_65.png", "firesmoke_66.png", "firesmoke_67.png", "firesmoke_68.png", "firesmoke_69.png", "firesmoke_70.png", "firesmoke_71.png", "firesmoke_72.png", "firesmoke_73.png", "firesmoke_74.png", "firesmoke_75.png", "firesmoke_76.png", "firesmoke_77.png", "firesmoke_78.png", "firesmoke_79.png", "firesmoke_80.png", "firesmoke_81.png", "firesmoke_82.png", "firesmoke_83.png", "firesmoke_84.png", "firesmoke_85.png", "firesmoke_86.png", "firesmoke_87.png", "firesmoke_88.png", "firesmoke_89.png", "firesmoke_90.png", "firesmoke_91.png", "firesmoke_92.png", "firesmoke_93.png", "firesmoke_94.png", "firesmoke_95.png", "firesmoke_96.png", "firesmoke_97.png", "firesmoke_98.png", "firesmoke_99.png", "firesmoke_100.png", "firesmoke_101.png", "firesmoke_102.png", "firesmoke_103.png", "firesmoke_104.png", "firesmoke_105.png", "firesmoke_106.png", "firesmoke_107.png", "firesmoke_108.png", "firesmoke_109.png", "firesmoke_110.png", "firesmoke_111.png", "firesmoke_112.png", "firesmoke_113.png", "firesmoke_114.png", "firesmoke_115.png", "firesmoke_116.png", "firesmoke_117.png", "firesmoke_118.png", "firesmoke_119.png"]
+
+Groups:
+    main:
+        content: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
+
+Animation:
+    code: [
+        play_group { group:"main" }
+    ]

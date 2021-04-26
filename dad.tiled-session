@@ -9,8 +9,12 @@
     ],
     "fileStates": {
         "Scenes/psychoanalyst_room.json": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 185.25,
+                "y": -129.5
+            }
         },
         "Scenes/test.json": {
             "scale": 0.15021874999999998,
@@ -30,7 +34,7 @@
     "openFiles": [
     ],
     "project": "dad.tiled-project",
-    "property.type": "string",
+    "property.type": "bool",
     "recentFiles": [
         "Scenes/psychoanalyst_room.json"
     ],

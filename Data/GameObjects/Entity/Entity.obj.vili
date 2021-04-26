@@ -11,10 +11,10 @@ Entity:
         zdepth: 0
     Collider:
         points: [
-            {x: 16, y: 160},
-            {x: 72, y: 160},
-            {x: 72, y: 184},
-            {x: 16, y: 184}
+            {x: 22, y: 140},
+            {x: 94, y: 140},
+            {x: 94, y: 164},
+            {x: 22, y: 164}
         ]
         unit: "ScenePixels"
     Script:

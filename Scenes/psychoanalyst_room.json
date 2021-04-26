@@ -62,17 +62,17 @@
                  "point":true,
                  "properties":[
                         {
-                         "name":"controlable",
+                         "name":"controllable",
                          "type":"bool",
                          "value":true
                         }, 
                         {
-                         "name":"skin",
+                         "name":"kind",
                          "type":"string",
-                         "value":"Bob"
+                         "value":"Psychoanalyst"
                         }],
                  "rotation":0,
-                 "type":"Character",
+                 "type":"Entity",
                  "visible":true,
                  "width":0,
                  "x":1920,
@@ -121,17 +121,17 @@
                  "point":true,
                  "properties":[
                         {
-                         "name":"controlable",
+                         "name":"controllable",
                          "type":"bool",
                          "value":false
                         }, 
                         {
-                         "name":"skin",
+                         "name":"kind",
                          "type":"string",
-                         "value":"Amelia"
+                         "value":"Patient"
                         }],
                  "rotation":0,
-                 "type":"Character",
+                 "type":"Entity",
                  "visible":true,
                  "width":0,
                  "x":1930,
@@ -160,12 +160,41 @@
                  "id":7,
                  "name":"chimney",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"controllable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"kind",
+                         "type":"string",
+                         "value":"Chimney"
+                        }],
                  "rotation":0,
-                 "type":"Chimney",
+                 "type":"Entity",
                  "visible":true,
                  "width":0,
                  "x":1320,
                  "y":614
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"player_controller",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"actor",
+                         "type":"object",
+                         "value":4
+                        }],
+                 "rotation":0,
+                 "type":"PlayerController",
+                 "visible":true,
+                 "width":0,
+                 "x":200,
+                 "y":-100
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -174,7 +203,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":8,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.5.0",

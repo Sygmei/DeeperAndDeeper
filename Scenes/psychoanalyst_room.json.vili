@@ -526,26 +526,19 @@ GameObjects:
             width: 0.0
             height: 0.0
             rotation: 0.0
-
-    AIController: 
-        type: "AIController"
-        Requires: 
-            x: -100.0
-            y: -100.0
-            width: 0.0
-            height: 0.0
-            rotation: 0.0
             
         
-    PlayerController: 
-        type: "PlayerController"
+    character: 
+        type: "Entity"
         Requires: 
             x: 1920.0
             y: 362.0
             width: 0.0
             height: 0.0
             rotation: 0.0
-            skin: "Bob"
+            controllable: true
+            kind: "Psychoanalyst"
+            
         
     camera: 
         type: "Camera"
@@ -555,6 +548,7 @@ GameObjects:
             width: 0.0
             height: 0.0
             rotation: 0.0
+            actor: "character"
             
         
     room_0_0: 
@@ -577,11 +571,7 @@ GameObjects:
             height: 0.0
             rotation: 0.0
             controllable: false
-            skin: "Amelia"
-            powers_names: {
-                left: "null",
-                right: "null"
-            }
+            kind: "Patient"
             
         
     smoke: 
@@ -604,8 +594,18 @@ GameObjects:
             height: 0.0
             rotation: 0.0
             controllable: true
-            skin: "Chimney"
-            powers_names: {
-                left: "projectiles",
-                right: "projectiles"
-            }
+            kind: "Chimney"
+            
+        
+    player_controller: 
+        type: "PlayerController"
+        Requires: 
+            x: 200.0
+            y: -100.0
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
+            actor: "character"
+            
+        
+    

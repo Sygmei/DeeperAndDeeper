@@ -1,0 +1,20 @@
+Meta:
+    name: "IDLE_RIGHT"
+    clock: 0.2
+    mode: "Loop"
+
+Images:
+    images: [
+        "1.png"
+    ]
+
+Groups:
+    main:
+        content: [
+            0
+        ]
+
+Animation:
+    code: [
+        play_group { group:"main" }
+    ]

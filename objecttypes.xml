@@ -9,11 +9,18 @@
   <property name="scale" type="float" default="1"/>
  </objecttype>
  <objecttype name="Character" color="#ff0000">
-  <property name="controlable" type="bool" default="false"/>
+  <property name="controllable" type="bool" default="false"/>
   <property name="skin" type="string"/>
+ </objecttype>
+ <objecttype name="Entity" color="#00ffff">
+  <property name="controllable" type="bool" default="false"/>
+  <property name="kind" type="string"/>
  </objecttype>
  <objecttype name="ParticleEmitter" color="#a0a0a4">
   <property name="particle" type="string"/>
+ </objecttype>
+ <objecttype name="PlayerController" color="#a0a0a4">
+  <property name="actor" type="object" default="0"/>
  </objecttype>
  <objecttype name="SceneAction" color="#00ff7f">
   <property name="action" type="string"/>

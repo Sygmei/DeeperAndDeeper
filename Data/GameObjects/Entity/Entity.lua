@@ -1,5 +1,5 @@
 Powers = require "scripts://Powers";
-local character_speed = 0.50;
+local default_speed = 0.50;
 local trajectory;
 local OFFSET_EPSILON = 0.0000001;
 
@@ -50,11 +50,20 @@ function Object:GetCurrentPosition()
     return {x=x+1, y=y+1};
 end
 
-function Local.Init(x, y, skin, controllable, powers_names)
-    Object.controllable = controllable;
-    This.Animator:load(obe.System.Path("dad://Sprites/Characters/" .. skin), Engine.Resources);
+local Entities = require "scripts://Entities";
+
+function Local.Init(x, y, kind)
+    Object.active_powers = {};
+    Object.power_container = {};
+    Object.cooldowns = {primary = 0, secondary = 0};
+    Object.speed = default_speed;
+    Object.kind = kind;
+    Object.onupdate = Entities[kind].onupdate;
+    print("New Entity of kind", kind);
+    Object.controllable = Entities[kind].controllable;
+    This.Animator:load(obe.System.Path("dad://Sprites/Characters/" .. Entities[kind].skin), Engine.Resources);
     This.Animator:setKey("IDLE_DOWN");
-    Object.powers = {left = Powers[powers_names.left], right = Powers[powers_names.right]};
+    Object.powers = {primary = Powers[Entities[kind].primary], secondary = Powers[Entities[kind].secondary]};
     This.SceneNode:moveWithoutChildren(This.Collider:getCentroid());
     Object.active_movements = {left = false, right = false, up = false, down = false};
     TILE_SIZE = obe.Transform.UnitVector(0, Engine.Scene:getTiles():getTileHeight(), obe.Transform.Units.ScenePixels):to(obe.Transform.Units.SceneUnits).y;
@@ -78,10 +87,29 @@ function Local.Init(x, y, skin, controllable, powers_names)
                     angle = GetMovingAngle({left=Object.active_movements.left, right=Object.active_movements.right});
                 end
                 trajectory:setAngle(angle);
-                trajectory:setSpeed(character_speed / 2);
+                trajectory:setSpeed(Object.speed / 2);
             end
         end
     end);
+
+    if Entities[kind].oncreate then
+        Entities[kind].oncreate(Object);
+    end
+end
+
+function Object:UsePower(primary_or_secondary, position)
+    local power = self.powers[primary_or_secondary];
+    local cooldown = power.cooldown or 0;
+    if obe.Time.epoch() - self.cooldowns[primary_or_secondary] > cooldown then
+        power.oncreate(Object, position);
+        local duration = power.duration or 0;
+        table.insert(self.active_powers, {
+            onupdate = power.onupdate,
+            ondelete = power.ondelete,
+            expiration = obe.Time.epoch() + duration
+        });
+        self.cooldowns[primary_or_secondary] = obe.Time.epoch();
+    end
 end
 
 function ContainsAnimation(animation_name)
@@ -94,6 +122,24 @@ function ContainsAnimation(animation_name)
 end
 
 function Event.Game.Update(event)
+    local expired_powers = {};
+    for k, v in pairs(Object.active_powers) do
+        if v.onupdate then
+            v.onupdate(Object);
+        end
+        if obe.Time.epoch() - v.expiration >= 0 then
+            table.insert(expired_powers, k);
+            if v.ondelete then
+                v.ondelete(Object);
+            end
+        end
+    end
+    for _, v in pairs(expired_powers) do
+        table.remove(Object.active_powers, v);
+    end
+    if Object.onupdate then
+        Object:onupdate();
+    end
     This.Sprite:setZDepth(-math.floor(This.SceneNode:getPosition().y * 1000));
     if IsMoving() then
         local angle = GetMovingAngle(Object.active_movements);
@@ -106,7 +152,7 @@ function Event.Game.Update(event)
                     break;
                 end
             end
-            trajectory:setSpeed(character_speed);
+            trajectory:setSpeed(Object.speed);
             trajectory:setAngle(angle);
         end
     else

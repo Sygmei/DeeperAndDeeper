@@ -22,8 +22,8 @@ Input:
         RRight: "Released: D"
         Goto: "Pressed: RMB"
         Continue: "Pressed: Return"
-        LeftPower: "Pressed: LMB"
-        RightPower: "Pressed: RMB"
+        PrimaryPower: "Pressed: LMB"
+        SecondaryPower: "Pressed: RMB"
         ExitPossession: "Pressed: E"
 
 Debug:

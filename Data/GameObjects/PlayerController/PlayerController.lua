@@ -1,26 +1,35 @@
-function Local.Init(x, y, skin)
-    Object.actor = Engine.Scene:createGameObject("Entity") {
-        x = x, y = y, skin = skin, controllable = true,
-        powers_names = {left = "possession", right = "null"}
-    };
+function Local.Init(actor)
+    Object.control(actor);
+end
+
+function Object.control(actor)
+    if actor ~= nil then
+        Object.actor = Engine.Scene:getGameObject(actor);
+    end
     Engine.Scene:getGameObject("camera").actor = Object.actor.Collider;
 end
 
 function MoveActor(direction, state)
-    return function() Object.actor:SetMove(direction, state); end
+    return function()
+        if Object.actor ~= nil then
+            Object.actor:SetMove(direction, state);
+        end
+    end
 end
 
-function UsePower(position)
-    local cursor_position = Engine.Cursor:getScenePosition() + Engine.Scene:getCamera():getPosition():to(obe.Transform.Units.ScenePixels);
-    Object.actor.powers[position](Object.actor, cursor_position);
+function UsePower(power)
+    if Object.actor ~= nil then
+        local cursor_position = Engine.Cursor:getScenePosition() + Engine.Scene:getCamera():getPosition():to(obe.Transform.Units.ScenePixels);
+        Object.actor:UsePower(power, cursor_position);
+    end
 end
 
-function UseLeftPower()
-    UsePower("left");
+function UsePrimaryPower()
+    UsePower("primary");
 end
 
-function UseRightPower()
-    UsePower("right");
+function UseSecondaryPower()
+    UsePower("secondary");
 end
 
 function ExitPossession()
@@ -35,6 +44,6 @@ Event.Actions.RUp = MoveActor("up", false);
 Event.Actions.RDown = MoveActor("down", false);
 Event.Actions.RLeft = MoveActor("left", false);
 Event.Actions.RRight = MoveActor("right", false);
-Event.Actions.LeftPower = UseLeftPower
-Event.Actions.RightPower = UseRightPower
+Event.Actions.PrimaryPower = UsePrimaryPower
+Event.Actions.SecondaryPower = UseSecondaryPower
 Event.Actions.ExitPossession = ExitPossession

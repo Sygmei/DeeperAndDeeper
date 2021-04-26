@@ -166,3 +166,46 @@
 [20:17:55.133]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
 [20:17:55.133]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
 [20:17:55.138]<info> : Done :)
+[02:13:38.234]<info> : Logger initialized
+[02:13:38.235]<info> : [ObEngine] Tiled Integration started
+[02:13:38.235]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:13:38.235]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:13:38.235]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:13:38.239]<info> : Done :)
+[02:14:38.510]<info> : Logger initialized
+[02:14:38.510]<info> : [ObEngine] Tiled Integration started
+[02:14:38.510]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:14:38.510]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:14:38.510]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:14:38.514]<info> : Done :)
+[02:15:14.498]<info> : Logger initialized
+[02:15:14.499]<info> : [ObEngine] Tiled Integration started
+[02:15:14.499]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:15:14.499]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:15:14.499]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:15:14.503]<info> : Done :)
+[02:17:23.303]<info> : Logger initialized
+[02:17:23.304]<info> : [ObEngine] Tiled Integration started
+[02:17:23.304]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:17:23.304]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:17:23.304]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:17:23.309]<info> : Done :)
+[02:22:03.198]<info> : Logger initialized
+[02:22:03.199]<info> : [ObEngine] Tiled Integration started
+[02:22:03.199]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:22:03.199]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:22:03.199]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:22:03.200]<error> : Object of type Camera depends on other object with id 0, please reorder them
+[02:22:03.200]<info> : Something went wrong :(
+[02:22:12.521]<info> : Logger initialized
+[02:22:12.521]<info> : [ObEngine] Tiled Integration started
+[02:22:12.521]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:22:12.521]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:22:12.521]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:22:12.526]<info> : Done :)
+[02:27:41.377]<info> : Logger initialized
+[02:27:41.378]<info> : [ObEngine] Tiled Integration started
+[02:27:41.378]<info> :   - Input file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json
+[02:27:41.378]<info> :   - Output file : D:/Dev/Projects/ObEngine/Execution/Workspace/DeeperAndDeeper/Scenes/psychoanalyst_room.json.vili
+[02:27:41.378]<info> :   - Current working directory : D:\Dev\Projects\ObEngine\Execution\Workspace\DeeperAndDeeper
+[02:27:41.382]<info> : Done :)
