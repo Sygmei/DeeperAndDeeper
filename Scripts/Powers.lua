@@ -43,7 +43,8 @@ Powers.possession = {
             print(gameObject.id, gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels).x, gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels).y, gameObject.controllable);
             if gameObject ~= self and gameObject.controllable and gameObject.Sprite:contains(destination) then
                 playerController = Engine.Scene:getGameObject("player_controller");
-                -- playerController.actor:delete();
+                self.invincible = true;
+                self.Sprite:setColor(obe.Graphics.Color(255, 255, 255, 0));
                 playerController:control(gameObject.id);
                 self.power_container.mind_control = ParticleAt("Mindcontrol", gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels) + obe.Transform.UnitVector(0, -0.2), obe.Transform.UnitVector(0.5, 0.5));
                 return
