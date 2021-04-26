@@ -1,0 +1,4 @@
+AimingWheel:
+    Sprite:
+    Script:
+        source: "self://AimingWheel.lua"
