@@ -61,6 +61,7 @@ function Local.Init(x, y, kind)
     Object.onupdate = Entities[kind].onupdate;
     print("New Entity of kind", kind);
     Object.controllable = Entities[kind].controllable;
+    Object.aim = Entities[kind].aim;
     This.Animator:load(obe.System.Path("dad://Sprites/Characters/" .. Entities[kind].skin), Engine.Resources);
     This.Animator:setKey("IDLE_DOWN");
     Object.powers = {primary = Powers[Entities[kind].primary], secondary = Powers[Entities[kind].secondary]};

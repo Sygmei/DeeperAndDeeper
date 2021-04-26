@@ -56,7 +56,8 @@ Entities.Chimney = {
     skin = "Chimney",
     primary = "weapon",
     secondary = "smoke",
-    controllable = true
+    controllable = true,
+    aim = "big",
 };
 
 Entities.Knifey = {

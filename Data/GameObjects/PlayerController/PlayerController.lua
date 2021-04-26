@@ -1,4 +1,5 @@
 function Local.Init(actor)
+    Object.aiming_wheel = Engine.Scene:createGameObject("AimingWheel")({active=false, texture="sprites://Aim/aim_medium.png"});
     Object:control(actor);
 end
 
@@ -12,6 +13,7 @@ function Object:control(actor)
     MoveActor("down", false);
     MoveActor("left", false);
     MoveActor("right", false);
+    Object.aiming_wheel:setActor(Object.actor);
 end
 
 function MoveActor(direction, state)
