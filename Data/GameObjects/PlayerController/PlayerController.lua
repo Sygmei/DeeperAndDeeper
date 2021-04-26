@@ -1,4 +1,7 @@
+local original_actor_id;
+
 function Local.Init(actor)
+    original_actor_id = actor;
     Object.aiming_wheel = Engine.Scene:createGameObject("AimingWheel")({active=false, texture="sprites://Aim/aim_medium.png"});
     Object:control(actor);
 end
@@ -81,7 +84,10 @@ function UseSecondaryPower()
 end
 
 function ExitPossession()
-    print("EXIIIIIIIIIT");
+    local original_actor = Engine.Scene:getGameObject(original_actor_id);
+    original_actor.invincible = false;
+    original_actor.Sprite:setColor(obe.Graphics.Color(255, 255, 255, 255));
+    Object:control(original_actor_id);
 end
 
 Event.Actions.Up = MoveActor("up", true);
