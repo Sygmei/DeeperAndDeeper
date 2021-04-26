@@ -1,8 +1,7 @@
 local paths = {};
-local world;
 
 function Local.Init()
-    world = BuildWorldMatrix();
+    Object.world = BuildWorldMatrix();
 end
 
 function Event.Game.Update(event)
@@ -114,5 +113,5 @@ function FollowCharacter(entity)
     end
     entity_path.pcache = destination;
 
-    entity_path.path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), world);
+    entity_path.path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), Object.world);
 end

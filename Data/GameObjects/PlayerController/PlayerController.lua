@@ -3,17 +3,45 @@ function Local.Init(actor)
     Object:control(actor);
 end
 
-function Object:control(actor)
-    if actor ~= nil then
-        Object.actor = Engine.Scene:getGameObject(actor);
-        Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
+function FindClosestAccessibleTile()
+    local position = Object.actor:GetCurrentPosition();
+    local world = Engine.Scene:getGameObject("ai_controller").world;
+    if world == nil or (world[position.x] ~= nil and world[position.x][position.y] == true) then
+        return position
     end
-    Engine.Scene:getGameObject("camera").actor = Object.actor.Collider;
-    MoveActor("up", false);
-    MoveActor("down", false);
-    MoveActor("left", false);
-    MoveActor("right", false);
+    for dist = 1, #world do
+        for x = -dist, dist, dist do
+            for y = -dist, dist, dist do
+                if world[x] ~= nil and world[x][y] == true then
+                    return {x = x, y = y}
+                end
+            end
+        end
+    end
+end
+
+function Object:control(actor_id)
+    if actor_id == nil then
+        return;
+    end
+    Object.actor = Engine.Scene:getGameObject(actor_id);
+    Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
+    if Object.actor.Collider:doesCollide(obe.Transform.UnitVector()) then
+        print("COLLISIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
+        local camera_scale = Engine.Scene:getCamera():getSize().y / 2;
+        local tile_width = Engine.Scene:getTiles():getTileWidth() / camera_scale;
+        local tile_height = Engine.Scene:getTiles():getTileHeight() / camera_scale;
+        local closest_accessible_tile = FindClosestAccessibleTile();
+        local px_x = closest_accessible_tile.x * tile_width;
+        local px_y = closest_accessible_tile.y * tile_height;
+        Object.actor.SceneNode:setPosition(obe.Transform.UnitVector(px_x, px_y, obe.Transform.Units.ScenePixels));     
+    end
+    Object.actor:SetMove("up", false);
+    Object.actor:SetMove("down", false);
+    Object.actor:SetMove("left", false);
+    Object.actor:SetMove("right", false);
     Object.aiming_wheel:setActor(Object.actor);
+    Engine.Scene:getGameObject("camera").actor = Object.actor.Collider;
 end
 
 function MoveActor(direction, state)
