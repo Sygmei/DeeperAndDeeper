@@ -1,0 +1,3 @@
+ProjectilesManager:
+    Script:
+        source:"self://ProjectilesManager.lua"
