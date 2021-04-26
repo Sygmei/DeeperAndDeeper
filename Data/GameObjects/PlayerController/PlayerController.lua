@@ -1,12 +1,17 @@
 function Local.Init(actor)
-    Object.control(actor);
+    Object:control(actor);
 end
 
-function Object.control(actor)
+function Object:control(actor)
     if actor ~= nil then
         Object.actor = Engine.Scene:getGameObject(actor);
+        --Object.actor.Collider:clearTags(obe.Collision.ColliderTagType.Accepted);
     end
     Engine.Scene:getGameObject("camera").actor = Object.actor.Collider;
+    MoveActor("up", false);
+    MoveActor("down", false);
+    MoveActor("left", false);
+    MoveActor("right", false);
 end
 
 function MoveActor(direction, state)

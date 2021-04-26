@@ -36,9 +36,8 @@ Powers.possession = {
             if gameObject ~= self and gameObject.controllable and gameObject.Sprite:contains(destination) then
                 playerController = Engine.Scene:getGameObject("player_controller");
                 -- playerController.actor:delete();
-                playerController.actor = gameObject;
+                playerController:control(gameObject.id);
                 self.power_container.mind_control = ParticleAt("Mindcontrol", gameObject.Collider:getCentroid():to(obe.Transform.Units.ScenePixels) + obe.Transform.UnitVector(0, -0.2), obe.Transform.UnitVector(0.5, 0.5));
-                Engine.Scene:getGameObject("camera").actor = playerController.actor.Collider;
                 return
             end
         end
