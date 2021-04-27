@@ -177,4 +177,31 @@ Powers.knife = {
     cooldown = 2,
 }
 
+Powers.fireball = {
+    oncreate = function(self, destination)
+        self.Animator:setKey("KNIFE");
+        self.speed = self.speed * 1.5;
+        self.power_container.knife_audio = Engine.Audio:load(obe.System.Path("dad://Sounds/knife.ogg"));
+        self.power_container.knife = HitboxAt {
+            actor = self,
+            position = self.Sprite:getPosition(),
+            size = self.Sprite:getSize(),
+            damage = 1,
+            hitrate = 0.2,
+            ignore = DynamicHitboxIgnore,
+            onhit = function()
+                self.power_container.knife_audio:play();
+            end
+        }
+        table.insert(self.hitboxes, self.power_container.knife.id);
+    end,
+    ondelete = function(self)
+        self.power_container.knife.delete();
+        self.speed = 0.5;
+    end,
+    duration = 1.2,
+    cooldown = 2,
+}
+
+
 return Powers;

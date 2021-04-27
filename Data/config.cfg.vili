@@ -12,9 +12,9 @@ Input:
         CameraZoom: "Pressed: MouseWheelDown"
         CameraUnzoom: "Pressed: MouseWheelUp"
         ToggleCameraSmoothing: "Pressed: F2"
-        Up: "Pressed: Z"
+        Up: ["Pressed: Z", "Pressed: W"]
         Down: "Pressed: S"
-        Left: "Pressed: Q"
+        Left: ["Pressed: Q", "Pressed: A"]
         Right: "Pressed: D"
         RUp: "Released: Z"
         RDown: "Released: S"
