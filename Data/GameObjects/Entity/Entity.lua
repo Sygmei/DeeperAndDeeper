@@ -55,6 +55,7 @@ local Entities = require "scripts://Entities";
 function Local.Init(x, y, kind)
     Object.Collider:addTag(obe.Collision.ColliderTagType.Tag, kind);
     Object.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Enemy");
+    Object.ondeath = nil;
     Object.hitboxes = {};
     Object.is_enemy = true;
     Object.invincible = false;
@@ -115,6 +116,9 @@ function Local.Delete()
     for k, v in pairs(Object.hitboxes) do
         print("Remove hitbox", v);
         hitbox_manager:removeHitbox(v);
+    end
+    if Object.ondeath then
+        Object.ondeath();
     end
 end
 

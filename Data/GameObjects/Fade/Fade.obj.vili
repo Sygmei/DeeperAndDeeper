@@ -1,0 +1,16 @@
+Fade:
+    Sprite:
+        transform:
+            x: "Position"
+            y: "Position"
+        layer: 0
+        zdepth: -1
+        rect: Rect {
+            width: 1.0,
+            height: 1.0,
+            unit: ViewPercentage
+        }
+    Script:
+        source:"self://Fade.lua"
+
+

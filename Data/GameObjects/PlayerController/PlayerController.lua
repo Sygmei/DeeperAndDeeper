@@ -1,4 +1,5 @@
 local original_actor_id;
+local death_song = Engine.Audio:load(obe.System.Path("dad://Sounds/death.ogg"));
 
 function Local.Init(actor)
     original_actor_id = actor;
@@ -36,6 +37,16 @@ function Object:control(actor_id)
         Object.actor.is_enemy = true;
     end
     Object.actor = Engine.Scene:getGameObject(actor_id);
+    Object.actor.controllable = false;
+    Object.actor.ondeath = function()
+        Object.actor = nil;
+        Engine.Scene:getGameObject("camera").actor = nil;
+        Engine.Scene:getGameObject("fade"):fadeOut();
+        death_song:play();
+        Engine.Events:schedule():after(3):run(function()
+            Engine.Scene:reload();
+        end)
+    end
     Object.actor.is_enemy = false;
     Object.actor.Collider:removeTag(obe.Collision.ColliderTagType.Accepted, "NONE");
     if Object.actor.Collider:doesCollide(obe.Transform.UnitVector()) then

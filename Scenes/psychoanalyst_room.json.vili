@@ -149,11 +149,11 @@ Tiles:
             tiles: [
                 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 12, 0, 0, 12, 0, 0, 0, 0, 0, 0, 2, 2147483650, 84, 85, 0, 0, 0, 2, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42, 43, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42, 43, 0, 61, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 0, 47, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 63, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 41, 0, 27, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 47, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -1440,6 +1440,16 @@ Sprites:
         layer: 10
         
 GameObjects: 
+    fade: 
+        type: "Fade"
+        Requires: 
+            x: 713.3333129882812
+            y: -208.0
+            width: 0.0
+            height: 0.0
+            rotation: 0.0
+            
+        
     vn: 
         type: "VisualNovel"
         Requires: 
@@ -1473,8 +1483,8 @@ GameObjects:
     character: 
         type: "Entity"
         Requires: 
-            x: 1920.0
-            y: 362.0
+            x: 1634.6666259765625
+            y: 338.6666564941406
             width: 0.0
             height: 0.0
             rotation: 0.0
@@ -1496,37 +1506,13 @@ GameObjects:
     enemy: 
         type: "Entity"
         Requires: 
-            x: 1930.0
-            y: 674.0
+            x: 1404.6666259765625
+            y: 356.6666564941406
             width: 0.0
             height: 0.0
             rotation: 0.0
             controllable: false
             kind: "Patient"
-            
-        
-    knifey: 
-        type: "Entity"
-        Requires: 
-            x: 1453.3333740234375
-            y: 762.48486328125
-            width: 0.0
-            height: 0.0
-            rotation: 0.0
-            controllable: true
-            kind: "Knifey"
-            
-        
-    chimney: 
-        type: "Entity"
-        Requires: 
-            x: 1318.1817626953125
-            y: 596.9697265625
-            width: 0.0
-            height: 0.0
-            rotation: 0.0
-            controllable: true
-            kind: "Chimney"
             
         
     camera: 
@@ -1538,29 +1524,6 @@ GameObjects:
             height: 0.0
             rotation: 0.0
             actor: "character"
-            
-        
-    player_controller: 
-        type: "PlayerController"
-        Requires: 
-            x: 486.0
-            y: -162.0
-            width: 0.0
-            height: 0.0
-            rotation: 0.0
-            actor: "character"
-            
-        
-    ocular: 
-        type: "Entity"
-        Requires: 
-            x: 1278.6666259765625
-            y: 2102.666748046875
-            width: 0.0
-            height: 0.0
-            rotation: 0.0
-            controllable: true
-            kind: "Ocular"
             
         
     ai_controller: 

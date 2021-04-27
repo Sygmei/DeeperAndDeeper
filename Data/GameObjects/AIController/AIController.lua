@@ -6,7 +6,7 @@ end
 
 function Event.Game.Update(event)
     for _, entity in pairs(Engine.Scene:getAllGameObjects("Entity")) do
-        if entity ~= Engine.Scene:getGameObject("player_controller").actor then
+        if entity.controllable then
             FollowCharacter(entity);
             ComputeNextMove(entity);
             UsePower(entity);
@@ -16,10 +16,13 @@ end
 
 function UsePower(entity)
     local position = entity:GetCurrentPosition();
-    local character_position = Engine.Scene:getGameObject("player_controller").actor:GetCurrentPosition();
-    if character_position.x - 1 <= position.x and position.x <= character_position.x + 1
-    and character_position.y - 1 <= position.y and position.y <= character_position.y + 1 then
-        entity:UsePower("primary");
+    local player_controller = Engine.Scene:getGameObject("player_controller")
+    if player_controller.actor then
+        local character_position = player_controller.actor:GetCurrentPosition();
+        if character_position.x - 1 <= position.x and position.x <= character_position.x + 1
+        and character_position.y - 1 <= position.y and position.y <= character_position.y + 1 then
+            entity:UsePower("primary");
+        end
     end
 end
 
@@ -105,11 +108,14 @@ function FollowCharacter(entity)
     end
     local entity_path = paths[entity.id];
     local position = entity:GetCurrentPosition();
-    local destination = Engine.Scene:getGameObject("player_controller").actor:GetCurrentPosition();
-    if entity_path.pcache ~= nil and entity_path.pcache.x == destination.x and entity_path.pcache.y == destination.y then
-        return;
-    end
-    entity_path.pcache = destination;
+    local player_controller = Engine.Scene:getGameObject("player_controller");
+    if player_controller.actor then
+        local destination = Engine.Scene:getGameObject("player_controller").actor:GetCurrentPosition();
+        if entity_path.pcache ~= nil and entity_path.pcache.x == destination.x and entity_path.pcache.y == destination.y then
+            return;
+        end
+        entity_path.pcache = destination;
 
-    entity_path.path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), Object.world);
+        entity_path.path = astar.FindPath(astar.Vector(position.x, position.y), astar.Vector(destination.x, destination.y), Object.world);
+    end
 end
